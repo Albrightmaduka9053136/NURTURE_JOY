@@ -56,6 +56,7 @@ To develop a responsible and explainable AI-driven pregnancy support system that
 # System Architecture Overview
 
 Nurture Joy follows a hybrid AI architecture:
+![alt text](image-1.png)
 
 ### 1 Chatbot Interaction Layer (Primary Entry Point)
 
