@@ -298,10 +298,10 @@ To ensure safety and performance:
 | ------------------- | --------------------------------------------- |
 | ML Models           | Python (Scikit-learn, Transformers)           |
 | Explainability      | SHAP                                          |
-| Retrieval           | Vector Database (FAISS / Pinecone equivalent) |
+| Retrieval           | Vector Database (Neon DB)                     |
 | Backend API         | RESTful Services                              |
-| Application Backend | Java Spring Boot                              |
-| Frontend            | Chatbot UI + Moderator Dashboard              |
+| Application Backend | Flask                                         |
+| Frontend            | Chatbot UI + Moderator Dashboard( ReactJS )   |
 | Data Governance     | Privacy controls + bias monitoring            |
 
 ---
