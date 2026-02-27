@@ -1,161 +1,329 @@
-# Nurture Joy  
-**AI-Powered Pregnancy Support Platform**
+# Nurture Joy
+
+## AI-Powered Pregnancy Decision Support System (DSS)
 
 ---
 
-## Project Overview
-Nurture Joy is an AI-driven, chatbot-centered pregnancy support platform designed to provide expectant parents with personalized, explainable, and non-diagnostic insights throughout pregnancy. The system combines machine learning, natural language processing (NLP), and ethical AI practices to support emotional well-being, pregnancy risk awareness, and safe community engagement—without replacing professional medical care.
+# Project Overview
+
+Nurture Joy is an AI-powered, chatbot-centered Decision Support System (DSS) designed to provide expectant parents with personalized, explainable, and non-diagnostic support throughout pregnancy.
+
+The platform integrates:
+
+* Natural Language Processing (NLP)
+* Supervised machine learning models
+* Retrieval-Augmented Generation (RAG)
+* Explainable AI (XAI)
+* Human-in-the-loop moderation
+
+Nurture Joy enhances emotional well-being support, pregnancy risk awareness, and community safety — while explicitly **not replacing medical professionals or clinical diagnosis**.
 
 ---
 
-## Problem Statement
-Pregnant individuals often experience emotional distress, uncertainty, and limited access to personalized pregnancy insights. Generic health advice fails to account for individual differences, while support teams and moderators face information overload and time constraints. There is a need for a safe, explainable, and supportive AI system that improves emotional awareness, personalized risk insight, and community support coordination.
+# Problem Statement
+
+Pregnant individuals frequently experience emotional stress, anxiety, uncertainty, and limited access to personalized pregnancy insights. Existing digital resources provide generic advice that fails to adapt to individual circumstances. Meanwhile, online support communities face moderation overload and risk missing urgent emotional distress signals.
+
+There is a need for a:
+
+* Safe
+* Explainable
+* Human-centered
+* Ethically bounded
+
+AI Decision Support System that improves early emotional awareness, structured risk insights, and community responsiveness.
 
 ---
 
-## Project Vision
-Throughout pregnancy, every mother receives individualized, knowledgeable, and caring support—anytime, anywhere.
+# Vision
+
+To ensure every expectant parent receives personalized, compassionate, and accessible AI-supported guidance — anytime, anywhere.
 
 ---
 
-## Project Mission
-To build a responsible and explainable AI platform that:
-- Supports emotional well-being through NLP-driven insights  
-- Provides personalized, non-diagnostic pregnancy risk awareness  
-- Improves safety and responsiveness in online community forums  
-- Maintains strict ethical, privacy, and safety boundaries  
+# Mission
+
+To develop a responsible and explainable AI-driven pregnancy support system that:
+
+* Detects emotional distress signals using NLP
+* Provides personalized, non-diagnostic risk awareness
+* Prioritizes urgent community posts
+* Uses Retrieval-Augmented Generation (RAG) to deliver grounded feedback
+* Maintains strict ethical, safety, and privacy safeguards
 
 ---
 
-## Core Design Principle: Chatbot as Primary Interaction Layer
-The AI chatbot is the **primary entry point and first feature implemented**. It enables:
-- Early emotional support and trust-building  
-- Conversational data collection for machine learning models  
-- Clear, human-centered explanations of insights  
+# System Architecture Overview
 
-All other system capabilities are built on this chatbot foundation.
+Nurture Joy follows a hybrid AI architecture:
 
----
+### 1 Chatbot Interaction Layer (Primary Entry Point)
 
-## Use Cases
+* Conversational data collection
+* Emotional support
+* Knowledge-grounded responses (via RAG)
+* First-line trust-building
 
-### Use Case 1 — AI Chatbot for Emotional Well-Being & Sentiment Detection (Foundational)
-**Implementation Priority:** First
+### 2 NLP & ML Processing Layer
 
-**Problem**  
-Users may experience stress, anxiety, or postpartum depression that goes unnoticed.
+* Sentiment detection
+* Emotion classification
+* Risk scoring
+* Post prioritization
 
-**ML Solution**  
-An NLP-based sentiment analysis model evaluates user-generated text from:
-- Chatbot conversations  
-- Journals  
-- Community posts  
+### 3 Decision Support Layer
 
-**Outputs**
-- Sentiment classification: Positive, Neutral, Stressed, Anxious  
-- Confidence score  
-- Triggered supportive responses or resources when risk is detected  
+* Risk category assignment
+* Explainable feature contributions (SHAP)
+* Moderator alert ranking
+* Escalation pathways
 
-**Business Value**
-- Establishes early trust and engagement  
-- Creates a safer and more supportive environment  
-- Enables early identification of mental health risks  
+### 4 Human-in-the-Loop Layer
+
+* Moderator review of flagged cases
+* Escalation to external resources
+* Continuous model feedback loop
 
 ---
 
-### Use Case 2 — Personalized Pregnancy Risk Prediction (Core ML Use Case)
-**Dependency:** Chatbot-based data collection from Use Case 1
+# Core Design Principle: Chatbot as Foundation
 
-**Problem**  
-Pregnant users need personalized risk insights instead of generic pregnancy advice.
+The AI chatbot is the primary interaction interface and first system component implemented.
 
-**ML Solution**  
-A supervised classification model predicts pregnancy-related risks (e.g., gestational diabetes and potential complications) using structured health data collected conversationally by the chatbot.
+It enables:
 
-**Inputs**
-- Age  
-- BMI  
-- Trimester  
-- Symptoms  
-- Medical history  
+* Emotional support & trust-building
+* Structured data collection for ML models
+* Grounded responses using RAG
+* Clear, human-readable explanations
 
-**Outputs**
-- Risk category: Low / Medium / High  
-- Explainable feature contributions (e.g., SHAP values)  
-- Personalized, non-diagnostic recommendations  
-
-**Business Value**
-- Reduces missed warning signs  
-- Encourages preventive care behaviors  
-- Improves maternal outcomes  
+All downstream machine learning components depend on chatbot-driven data collection.
 
 ---
 
-### Use Case 3 — Online Community Forum Moderation & Post Prioritization
-**Dependency:** NLP outputs from Use Case 1 and risk signals from Use Case 2
-
-**Problem**  
-Online community forums can receive large volumes of posts, including emotionally sensitive or urgent content that may be missed by moderators.
-
-**ML Solution**
-- Apply sentiment and emotion detection to forum posts  
-- Classify posts by urgency and potential risk  
-- Rank posts to prioritize moderator attention  
-
-**Outputs**
-- Ranked list of posts by urgency  
-- Alerts for high-risk or sensitive content  
-- Trend summaries of community concerns  
-
-**Business Value**
-- Faster response to users in distress  
-- Reduced moderator overload  
-- Safer and more supportive community environment  
-- More efficient use of staff time  
+# Use Cases
 
 ---
 
-## Scope & Boundaries
+## Use Case 1 — Emotional Well-Being & Sentiment Detection (Foundational)
+
+### Problem
+
+Emotional distress (stress, anxiety, postpartum depression) may go unnoticed.
+
+### ML Methods Implemented
+
+* Transformer-based sentiment classification (e.g., fine-tuned BERT)
+* Emotion detection model
+* Rule-based crisis keyword detection
+* Confidence scoring
+
+### Inputs
+
+* Chatbot conversations
+* Journals
+* Community posts
+
+### Outputs
+
+* Sentiment category: Positive / Neutral / Stressed / Anxious
+* Risk confidence score
+* Triggered supportive responses
+* Escalation recommendation (if needed)
+
+### Business Value
+
+* Early trust and engagement
+* Early detection of mental health risk
+* Safer support environment
+
+---
+
+## Use Case 2 — Personalized Pregnancy Risk Prediction
+
+### Problem
+
+Generic pregnancy advice fails to account for personal health variables.
+
+### ML Methods Implemented
+
+* Supervised classification model (Logistic Regression + Gradient Boosting)
+* Explainability using SHAP
+* Structured feature engineering
+
+### Inputs
+
+* Age
+* BMI
+* Trimester
+* Symptoms
+* Medical history
+
+### Outputs
+
+* Risk category: Low / Medium / High
+* Feature contribution explanation
+* Personalized, non-diagnostic recommendations
+
+### Business Value
+
+* Encourages preventive care
+* Reduces missed warning signs
+* Improves health awareness
+
+---
+
+## Use Case 3 — Community Post Moderation & Prioritization
+
+### Problem
+
+High forum volume leads to missed urgent posts.
+
+### ML Methods Implemented
+
+* NLP classification
+* Risk-weighted ranking
+* Hybrid model (rule-based + transformer scoring)
+
+### Outputs
+
+* Ranked urgency list
+* High-risk alerts
+* Trend analysis dashboard
+
+### Business Value
+
+* Faster response to distressed users
+* Reduced moderator overload
+* Increased community safety
+
+---
+
+# RAG (Retrieval-Augmented Generation) Integration
+
+### Purpose
+
+To ensure chatbot responses are:
+
+* Grounded in verified knowledge
+* Explainable
+* Consistent
+* Safer
+
+### How It Works
+
+1. User question received
+2. Knowledge base retrieval (guidelines, policies, resources)
+3. Relevant documents passed to LLM
+4. Grounded response generated
+5. Safety filter applied
+
+### Benefits
+
+* Reduced hallucinations
+* Updatable knowledge base
+* Traceable information sources
+
+### Limitations
+
+* Retrieval quality dependency
+* Increased latency
+* System complexity
+* Requires curated knowledge base
+
+---
+
+# Model Metrics & Evaluation Strategy
+
+To ensure safety and performance:
+
+### Sentiment & Risk Models
+
+* Precision
+* Recall (priority for high-risk detection)
+* F1-score
+* ROC-AUC
+* Calibration score
+
+### Moderation Model
+
+* Alert precision rate
+* False positive rate
+* Moderator agreement score
+
+### RAG Evaluation
+
+* Retrieval accuracy
+* Faithfulness to source
+* Hallucination rate
+* Response latency
+
+---
+
+# Ethical Safeguards
+
+* Non-diagnostic positioning
+* Human-in-the-loop escalation
+* SHAP-based explainability
+* Bias monitoring across demographic segments
+* Privacy-by-design architecture
+* Secure data storage
+* No autonomous medical decisions
+* Crisis escalation protocols
+
+---
+
+# Scope & Boundaries
 
 ### In Scope
-- Non-diagnostic ML risk prediction  
-- NLP-based emotional well-being detection  
-- Online community post prioritization and moderation support  
-- Explainable AI techniques  
+
+* Emotional distress detection
+* Non-diagnostic pregnancy risk awareness
+* Post prioritization & moderation support
+* Explainable AI
 
 ### Out of Scope
-- Clinical diagnosis  
-- Fetal anomaly prediction  
-- Medical treatment recommendations  
-- Replacement of professional healthcare judgment  
+
+* Clinical diagnosis
+* Medical prescriptions
+* Fetal anomaly prediction
+* Replacement of professional healthcare judgment
 
 ---
 
-## Technology Stack (Planned)
-- **Backend ML:** Python (Scikit-learn, NLP models)  
-- **Explainability:** SHAP  
-- **API Layer:** RESTful services  
-- **Application Backend:** Java Spring Boot  
-- **Frontend:** AI chatbot interface and community moderation dashboard  
-- **Data Ethics:** Bias monitoring, transparency, and privacy controls  
+# Technology Stack
+
+| Layer               | Technology                                    |
+| ------------------- | --------------------------------------------- |
+| ML Models           | Python (Scikit-learn, Transformers)           |
+| Explainability      | SHAP                                          |
+| Retrieval           | Vector Database (FAISS / Pinecone equivalent) |
+| Backend API         | RESTful Services                              |
+| Application Backend | Java Spring Boot                              |
+| Frontend            | Chatbot UI + Moderator Dashboard              |
+| Data Governance     | Privacy controls + bias monitoring            |
 
 ---
 
-## Team Information
+# Team Information
 
-**Team Name:**  
+**Team Name:**
 Scrum Team 3 – Nurture Joy
 
-**Team Members**
-- Lesley Wanjiku Kamamo — Student ID: 8984972  
-- Andrew Silveira — Student ID: 5077086  
-- Abdullahi Abdirizak Mohamed — Student ID: 9082466  
-- Albright Maduka Ifechukwude — Student ID: 9053136  
+**Members:**
+
+* Lesley Wanjiku Kamamo — 8984972
+* Andrew Silveira — 5077086
+* Abdullahi Abdirizak Mohamed — 9082466
+* Albright Maduka Ifechukwude — 9053136
 
 ---
 
-## References
-- World Health Organization (WHO) — Maternal Health Guidelines  
-- Centers for Disease Control and Prevention (CDC) — Pregnancy Risk Factors  
-- SHAP Documentation — Explainable AI  
-- Ethical AI Frameworks for Healthcare  
+# References
+
+* World Health Organization (WHO) – Maternal Health Guidelines
+* Centers for Disease Control and Prevention (CDC) – Pregnancy Risk Factors
+* Lewis et al. (2020) – Retrieval-Augmented Generation
+* SHAP Documentation – Explainable AI
+* Rajkomar et al. (2019) – Machine Learning in Medicine
+* Fitzpatrick et al. (2017) – Mental Health Chatbots
