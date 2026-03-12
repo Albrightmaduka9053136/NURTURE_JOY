@@ -12,5 +12,5 @@ class Config:
     #     f"{os.getenv('DB_NAME')}"
     # )
 
-    SQLALCHEMY_DATABASE_URI = "YOUR DATABASE URI HERE"
+    SQLALCHEMY_DATABASE_URI = "postgresql://neondb_owner:npg_mTgL3UexS5aM@ep-young-pine-ai18kf66-pooler.c-4.us-east-1.aws.neon.tech/nuturejoy?sslmode=require&channel_binding=require"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
