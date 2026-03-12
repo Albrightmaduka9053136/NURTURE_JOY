@@ -1,44 +1,1012 @@
 [
   {
-    "id": "kb_ultrasound_waiting",
-    "title": "Waiting for ultrasound results",
-    "text": "Waiting for ultrasound results can feel stressful. Many clinics review results and share them at the next appointment unless something urgent appears. If you want, you can write down 2–3 questions you’d like to ask your provider and use a short grounding exercise while you wait.",
-    "tags": ["ultrasound", "scan", "results", "anxiety"],
-    "link": "/resources/grounding-54321"
+    "topic": "box breathing",
+    "title": "Box breathing to calm stress",
+    "content": "Box breathing is a simple technique that can calm the body’s stress response. Inhale for 4 counts, hold for 4, exhale for 4, hold for 4, and repeat for a few rounds. If you feel light‑headed, return to normal breathing and try again more gently.",
+    "link": "/resources/breathing-box",
+    "source": "NurtureJoy resource",
+    "type": "info_article",
+    "id": "info_001_box-breathing-box-breathing-to-calm-stre"
   },
   {
-    "id": "kb_glucose_test",
-    "title": "Glucose test (gestational diabetes screening)",
-    "text": "The glucose test is a common screening during pregnancy. It can help your care team understand how your body is processing sugar at this stage. If you’re feeling worried, it may help to note your questions ahead of time (e.g., what the next steps are if results are outside the expected range).",
-    "tags": ["glucose", "gestational diabetes", "screening", "test", "anxiety"],
-    "link": "/resources/care-providers"
+    "topic": "grounding 5-4-3-2-1",
+    "title": "5-4-3-2-1 grounding for anxious moments",
+    "content": "Grounding brings attention back to the present when worries spiral. Name 5 things you can see, 4 you can feel, 3 you can hear, 2 you can smell, and 1 you can taste. This can reduce panic sensations and help you feel more in control.",
+    "link": "/resources/grounding-54321",
+    "source": "NurtureJoy resource",
+    "type": "info_article",
+    "id": "info_002_grounding-5-4-3-2-1-5-4-3-2-1-grounding-"
   },
   {
-    "id": "kb_labor_worry",
-    "title": "Feeling anxious about labor and delivery",
-    "text": "It’s common to feel anxious about labor and delivery, especially when things feel unknown. Some people find it helpful to focus on one small step: make a short list of questions for your provider, and practice a calming technique like box breathing. Having a plan can reduce uncertainty.",
-    "tags": ["labor", "delivery", "birth", "anxiety"],
-    "link": "/resources/breathing-box"
+    "topic": "journaling",
+    "title": "Journaling to process feelings",
+    "content": "Journaling can help you notice patterns in thoughts and emotions without judging yourself. Try writing: “What am I feeling right now?”, “What do I need?”, and “What’s one small step that could help today?”. Short, consistent entries are often more helpful than long ones.",
+    "link": "/resources/journal",
+    "source": "NurtureJoy resource",
+    "type": "info_article",
+    "id": "info_003_journaling-journaling-to-process-feeling"
   },
   {
-    "id": "kb_sleep_stress",
-    "title": "Sleep and stress during pregnancy",
-    "text": "Sleep changes can happen during pregnancy, and stress can make it harder to fall asleep. A gentle routine can help: reduce screens before bed, try slow breathing, and use grounding if your thoughts are racing. If sleep problems feel persistent or severe, consider discussing them with a care provider.",
-    "tags": ["sleep", "insomnia", "stress", "anxiety"],
-    "link": "/resources/breathing-box"
+    "topic": "urgent support",
+    "title": "When you need urgent support",
+    "content": "If you feel unsafe, are thinking about harming yourself, or can’t cope right now, seek urgent help. In Canada, you can call or text 9-8-8 for immediate support. If there is immediate danger, call emergency services.",
+    "link": "/resources/urgent-support",
+    "source": "988 Canada / NurtureJoy resource",
+    "type": "info_article",
+    "id": "info_004_urgent-support-when-you-need-urgent-supp"
   },
   {
-    "id": "kb_support_reaching_out",
-    "title": "Reaching out for support",
-    "text": "If you’re feeling emotionally weighed down, reaching out to someone supportive can help. You might message a care provider, talk to a trusted person, or connect with a community space. If you’d like, you can also try a short journaling prompt to put your feelings into words.",
-    "tags": ["support", "provider", "community", "journal"],
-    "link": "/resources/journal-prompts"
+    "topic": "talking to a provider",
+    "title": "How to bring up mental health with a provider",
+    "content": "It can help to be direct and specific: describe what you’re feeling, how long it’s been happening, and how it affects sleep, appetite, or daily functioning. You can also ask about therapy, community resources, and safety planning. You deserve to be taken seriously.",
+    "link": "/resources/care-providers",
+    "source": "Clinical communication best practice",
+    "type": "info_article",
+    "id": "info_005_talking-to-a-provider-how-to-bring-up-me"
   },
   {
-    "id": "kb_urgent_support",
-    "title": "Urgent emotional support",
-    "text": "If you feel like you might harm yourself or you’re not safe, it’s important to seek urgent help right away. If you can, contact local emergency services or a crisis line in your area. You can also reach out to a trusted person nearby.",
-    "tags": ["urgent", "crisis", "self-harm", "safety"],
-    "link": "/resources/urgent-support"
+    "topic": "pregnancy anxiety",
+    "title": "Anxiety during pregnancy is common",
+    "content": "Many people experience increased worry during pregnancy—about the baby’s health, medical appointments, or big life changes. Signs can include racing thoughts, tension, irritability, or trouble sleeping. Gentle coping skills and support from trusted people or professionals can make a big difference.",
+    "link": "https://postpartum.net/canada/",
+    "source": "Postpartum Support International (PSI) Canada",
+    "type": "info_article",
+    "id": "info_006_pregnancy-anxiety-anxiety-during-pregnan"
+  },
+  {
+    "topic": "prenatal depression",
+    "title": "Depression during pregnancy",
+    "content": "Depression can show up as persistent sadness, loss of interest, hopelessness, low energy, or changes in sleep and appetite. It is not a personal failure, and support is available. If symptoms last more than two weeks or feel overwhelming, talking to a healthcare professional is recommended.",
+    "link": "https://postpartum.net/get-help/help-for-moms/",
+    "source": "Postpartum Support International (PSI)",
+    "type": "info_article",
+    "id": "info_007_prenatal-depression-depression-during-pr"
+  },
+  {
+    "topic": "panic symptoms",
+    "title": "Panic-like symptoms and what can help",
+    "content": "Panic symptoms can feel intense—rapid heartbeat, shortness of breath, trembling, or fear that something is terribly wrong. While the sensations are scary, they often peak and pass. Slow breathing, grounding, and reaching out to a trusted person can help you ride the wave.",
+    "link": "https://www.camh.ca/en/health-info/mental-illness-and-addiction-index/anxiety-disorders",
+    "source": "CAMH",
+    "type": "info_article",
+    "id": "info_008_panic-symptoms-panic-like-symptoms-and-w"
+  },
+  {
+    "topic": "intrusive thoughts",
+    "title": "Intrusive thoughts in the perinatal period",
+    "content": "Intrusive thoughts are unwanted thoughts or images that pop into your mind and cause distress. Having a thought is not the same as wanting to act on it. If intrusive thoughts feel frequent, upsetting, or are paired with urges to act, seek professional support promptly.",
+    "link": "https://postpartum.net/get-help/help-for-moms/",
+    "source": "Postpartum Support International (PSI)",
+    "type": "info_article",
+    "id": "info_009_intrusive-thoughts-intrusive-thoughts-in"
+  },
+  {
+    "topic": "sleep and mood",
+    "title": "Sleep changes and emotional health",
+    "content": "Sleep disruption is common in pregnancy and can amplify anxiety and low mood. Helpful basics include consistent sleep/wake times, a wind-down routine, limiting late caffeine, and reducing screens before bed. If insomnia is severe or persistent, ask a provider about safe options.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_010_sleep-and-mood-sleep-changes-and-emotion"
+  },
+  {
+    "topic": "stress basics",
+    "title": "What stress is and why it feels physical",
+    "content": "Stress is a natural response to challenges. Your body may react with muscle tension, faster breathing, stomach discomfort, or restlessness. Noticing early signs lets you use coping skills sooner—like breathing, movement, hydration, and talking with support.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_011_stress-basics-what-stress-is-and-why-it-"
+  },
+  {
+    "topic": "mindfulness",
+    "title": "A simple mindfulness reset",
+    "content": "Mindfulness doesn’t require “emptying your mind.” Try this: notice your breath for 3 slow cycles, then name one thing you see, one thing you feel, and one thing you hear. The goal is to gently return attention to the present—not to force anxiety away.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_012_mindfulness-a-simple-mindfulness-reset"
+  },
+  {
+    "topic": "self-compassion",
+    "title": "Self-compassion when you feel you’re ‘not doing enough’",
+    "content": "Pregnancy can bring pressure and self-criticism. A self-compassion pause can help: acknowledge the difficulty, remind yourself you’re not alone, and speak to yourself as you would to a friend. Small kindnesses—rest, food, hydration—are valid care.",
+    "link": "https://www.who.int/publications-detail-redirect/9789240003927",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_013_self-compassion-self-compassion-when-you"
+  },
+  {
+    "topic": "support network",
+    "title": "Building a support network",
+    "content": "Support can include a partner, friend, family member, doula, midwife, doctor, counselor, or peer group. Be specific about what helps: a check-in text, a walk together, help with chores, or coming to an appointment. People often want to help but need clear requests.",
+    "link": "https://postpartum.net/get-help/psi-online-support-meetings/",
+    "source": "PSI Online Support Meetings",
+    "type": "info_article",
+    "id": "info_014_support-network-building-a-support-netwo"
+  },
+  {
+    "topic": "peer support",
+    "title": "Peer support groups",
+    "content": "Peer support can reduce isolation by connecting you with others who understand pregnancy and postpartum mental health challenges. Groups are not a replacement for medical care, but they can provide validation, coping ideas, and a sense of community.",
+    "link": "https://postpartum.net/get-help/psi-online-support-meetings/",
+    "source": "PSI",
+    "type": "info_article",
+    "id": "info_015_peer-support-peer-support-groups"
+  },
+  {
+    "topic": "ultrasound anxiety",
+    "title": "Feeling nervous before an ultrasound",
+    "content": "It’s common to feel anxious before scans or test results. Consider writing down questions ahead of time, bringing a support person if possible, and using breathing exercises in the waiting room. If anxiety feels intense, tell your provider—you’re allowed to ask for reassurance and clarity.",
+    "link": "https://www.acog.org/womens-health",
+    "source": "ACOG (general women’s health resources)",
+    "type": "info_article",
+    "id": "info_016_ultrasound-anxiety-feeling-nervous-befor"
+  },
+  {
+    "topic": "glucose test worry",
+    "title": "Worry about glucose screening",
+    "content": "Screening tests can feel stressful because they come with uncertainty. It may help to focus on what you can control: hydration, a plan for the day, and asking how results will be shared. Remember that screening is designed to catch concerns early so you can get support if needed.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_017_glucose-test-worry-worry-about-glucose-s"
+  },
+  {
+    "topic": "prenatal visits",
+    "title": "Making prenatal visits less stressful",
+    "content": "Before appointments, note symptoms, questions, and any mood changes you want to mention. During the visit, ask what is normal, what is not, and when to follow up. Afterward, a short debrief with someone you trust can help you feel grounded.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_018_prenatal-visits-making-prenatal-visits-l"
+  },
+  {
+    "topic": "nausea",
+    "title": "Morning sickness and nausea",
+    "content": "Nausea is common in early pregnancy. Some people find small frequent meals, bland foods, ginger, and staying hydrated helpful. If you can’t keep fluids down, feel dizzy, or symptoms are severe, contact a healthcare professional for guidance.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_019_nausea-morning-sickness-and-nausea"
+  },
+  {
+    "topic": "fatigue",
+    "title": "Fatigue during pregnancy",
+    "content": "Fatigue is common due to hormonal changes, sleep disruption, and physical demands. Gentle movement, hydration, iron-rich foods (as advised), and rest breaks can help. If fatigue is extreme or paired with shortness of breath, fainting, or chest pain, seek medical advice.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_020_fatigue-fatigue-during-pregnancy"
+  },
+  {
+    "topic": "back pain",
+    "title": "Back and pelvic discomfort",
+    "content": "Back discomfort can increase as posture and ligaments change. Helpful options include gentle stretching, supportive footwear, heat packs, and prenatal-friendly strengthening (if approved by your provider). Seek medical guidance if pain is severe, sudden, or limits mobility.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_021_back-pain-back-and-pelvic-discomfort"
+  },
+  {
+    "topic": "heartburn",
+    "title": "Heartburn and digestion changes",
+    "content": "Heartburn can worsen as pregnancy progresses. Some people benefit from smaller meals, avoiding lying down right after eating, and elevating the head of the bed. Ask your provider which medications are safe if lifestyle steps aren’t enough.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_022_heartburn-heartburn-and-digestion-change"
+  },
+  {
+    "topic": "headaches",
+    "title": "Headaches and stress",
+    "content": "Headaches can be triggered by stress, dehydration, low sleep, or changes in routine. Try water, a snack, rest in a dim room, and gentle breathing. If headaches are severe, persistent, or accompanied by vision changes, contact a healthcare professional.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_023_headaches-headaches-and-stress"
+  },
+  {
+    "topic": "swelling",
+    "title": "Swelling and body changes",
+    "content": "Mild swelling can occur, especially later in pregnancy. Elevating feet, gentle walking, and hydration may help. If swelling is sudden, painful, or associated with other concerning symptoms, seek medical advice promptly.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_024_swelling-swelling-and-body-changes"
+  },
+  {
+    "topic": "nutrition basics",
+    "title": "Nutrition basics in pregnancy",
+    "content": "Balanced meals support energy and mood. Aim for regular meals with protein, fiber, and fluids. If nausea limits food choices, focus on what you can tolerate and discuss persistent issues with a provider.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_025_nutrition-basics-nutrition-basics-in-pre"
+  },
+  {
+    "topic": "hydration",
+    "title": "Hydration and mood",
+    "content": "Dehydration can worsen fatigue, headaches, and irritability. Keeping a water bottle nearby, adding fruit, or choosing soups and watery foods can help. If you’re vomiting frequently or can’t keep fluids down, reach out to a healthcare professional.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_026_hydration-hydration-and-mood"
+  },
+  {
+    "topic": "exercise",
+    "title": "Gentle activity for mood support",
+    "content": "If your provider says activity is safe, gentle movement like walking or prenatal yoga may support mood and sleep. Start small and listen to your body. Stop and seek advice if you feel dizzy, have pain, or experience concerning symptoms.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_027_exercise-gentle-activity-for-mood-suppor"
+  },
+  {
+    "topic": "prenatal yoga",
+    "title": "Prenatal yoga and relaxation",
+    "content": "Prenatal yoga can combine movement, breath, and body awareness—useful for stress and sleep. Choose pregnancy-specific classes and avoid positions that feel uncomfortable. Always follow any guidance from your healthcare provider.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_028_prenatal-yoga-prenatal-yoga-and-relaxati"
+  },
+  {
+    "topic": "routine",
+    "title": "Daily routine for steadier mood",
+    "content": "A simple routine can reduce mental load: regular meals, hydration, brief movement, and a consistent sleep window. Even a 10-minute “anchor habit” (walk, stretch, journal) can create stability on hard days.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_029_routine-daily-routine-for-steadier-mood"
+  },
+  {
+    "topic": "relationship stress",
+    "title": "Relationship stress during pregnancy",
+    "content": "Pregnancy can change roles, finances, and expectations—stress in relationships is common. Consider using “I” statements, setting small check-in times, and asking for specific support. If you feel unsafe or controlled, reach out to a trusted professional or support service.",
+    "link": "https://postpartum.net/canada/",
+    "source": "PSI Canada",
+    "type": "info_article",
+    "id": "info_030_relationship-stress-relationship-stress-"
+  },
+  {
+    "topic": "work stress",
+    "title": "Work and school stress while pregnant",
+    "content": "Work and school demands can increase stress and fatigue. If possible, prioritize tasks, take micro-breaks, and communicate accommodations you need (sitting breaks, hydration, flexible timing). If stress feels unmanageable, consider talking with a counselor or provider.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_031_work-stress-work-and-school-stress-while"
+  },
+  {
+    "topic": "thought spirals",
+    "title": "Handling worry spirals",
+    "content": "When worries loop, try a ‘name it’ step: “This is anxiety talking.” Then pick one grounding action—slow breathing, a short walk, or a task that takes 5 minutes. If you need reassurance, write your questions down for your next appointment rather than Googling late at night.",
+    "link": "https://www.who.int/publications-detail-redirect/9789240003927",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_032_thought-spirals-handling-worry-spirals"
+  },
+  {
+    "topic": "progressive muscle relaxation",
+    "title": "Progressive muscle relaxation",
+    "content": "Progressive muscle relaxation involves tensing and relaxing muscle groups to release tension. Start with your shoulders and hands, then move down the body. Pairing this with slow breathing can help calm your nervous system.",
+    "link": "https://www.who.int/publications-detail-redirect/9789240003927",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_033_progressive-muscle-relaxation-progressiv"
+  },
+  {
+    "topic": "grounding with senses",
+    "title": "Grounding with temperature and touch",
+    "content": "If you feel overwhelmed, try sensory grounding: hold something cool, wash hands with warm water, or press your feet into the floor while noticing the contact points. Sensory cues can reduce ‘floating’ feelings during anxiety.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_034_grounding-with-senses-grounding-with-tem"
+  },
+  {
+    "topic": "social connection",
+    "title": "Connection as a coping strategy",
+    "content": "Even brief connection can reduce stress. A short voice note, a walk with a friend, or sitting near someone you trust can help your body feel safer. If you don’t feel comfortable reaching out to people you know, peer support groups may help.",
+    "link": "https://postpartum.net/get-help/psi-online-support-meetings/",
+    "source": "PSI",
+    "type": "info_article",
+    "id": "info_035_social-connection-connection-as-a-coping"
+  },
+  {
+    "topic": "perinatal mental health",
+    "title": "Perinatal mental health conditions",
+    "content": "Perinatal mental health conditions include depression and anxiety during pregnancy and after birth. They are common and treatable, and seeking support early often leads to better outcomes. If you notice persistent low mood, panic, or feeling detached, consider speaking with a provider.",
+    "link": "https://postpartum.net/get-help/help-for-moms/",
+    "source": "PSI",
+    "type": "info_article",
+    "id": "info_036_perinatal-mental-health-perinatal-mental"
+  },
+  {
+    "topic": "when to seek help",
+    "title": "When to seek professional help",
+    "content": "Consider professional support if symptoms last more than two weeks, interfere with daily life, or include thoughts of self-harm. Support can include therapy, peer groups, and medical evaluation. You deserve care, not judgment.",
+    "link": "https://www.camh.ca/en/health-info/mental-illness-and-addiction-index/anxiety-disorders",
+    "source": "CAMH",
+    "type": "info_article",
+    "id": "info_037_when-to-seek-help-when-to-seek-professio"
+  },
+  {
+    "topic": "therapy options",
+    "title": "Common therapy options for anxiety and mood",
+    "content": "Talk therapies like CBT (cognitive behavioural therapy) can help you notice unhelpful thought patterns and build coping skills. Some people also benefit from interpersonal therapy, especially during major life changes. Ask your provider about options that fit your needs and pregnancy stage.",
+    "link": "https://www.camh.ca/en/health-info/mental-illness-and-addiction-index/anxiety-disorders",
+    "source": "CAMH",
+    "type": "info_article",
+    "id": "info_038_therapy-options-common-therapy-options-f"
+  },
+  {
+    "topic": "safety planning",
+    "title": "A simple safety plan idea",
+    "content": "A safety plan can include: warning signs, coping skills that help, people you can contact, and where to get urgent support. Keeping this written down can be useful on bad days. If you’re in immediate danger, seek emergency help.",
+    "link": "https://988.ca/",
+    "source": "988 Canada",
+    "type": "info_article",
+    "id": "info_039_safety-planning-a-simple-safety-plan-ide"
+  },
+  {
+    "topic": "988 canada",
+    "title": "Canada’s 9-8-8 Suicide Crisis Helpline",
+    "content": "Across Canada, 9-8-8 provides 24/7 crisis support by call or text in English and French. It’s available if you’re thinking about suicide, worried about someone else, or need immediate emotional support.",
+    "link": "https://988.ca/",
+    "source": "Government of Canada / 988",
+    "type": "info_article",
+    "id": "info_040_988-canada-canada-s-9-8-8-suicide-crisis"
+  },
+  {
+    "topic": "canada perinatal resources",
+    "title": "Canadian perinatal mental health resources",
+    "content": "Canada has specialized perinatal mental health supports, including educational resources and regional programs. If you’re unsure where to start, a family doctor, midwife, or local public health unit can help connect you to services.",
+    "link": "https://iwkhealth.ca/pregnancy/perinatal-mental-health-resources",
+    "source": "IWK Health",
+    "type": "info_article",
+    "id": "info_041_canada-perinatal-resources-canadian-peri"
+  },
+  {
+    "topic": "psic canada",
+    "title": "PSI Canada supports",
+    "content": "PSI Canada provides education and support for perinatal mental health across Canada, including ways to connect to peer support and resources. It can be a helpful starting point if you feel isolated or unsure what you’re experiencing.",
+    "link": "https://postpartum.net/canada/",
+    "source": "PSI Canada",
+    "type": "info_article",
+    "id": "info_042_psic-canada-psi-canada-supports"
+  },
+  {
+    "topic": "baby movement anxiety",
+    "title": "Worrying about baby movement",
+    "content": "Worry about fetal movement is common, especially for first-time parents. If you notice a change that concerns you, it’s reasonable to contact your care provider for guidance rather than sitting alone with worry. Trust your instincts and seek reassurance when needed.",
+    "link": "https://www.cdc.gov/pregnancy/",
+    "source": "CDC Pregnancy",
+    "type": "info_article",
+    "id": "info_043_baby-movement-anxiety-worrying-about-bab"
+  },
+  {
+    "topic": "birth fear",
+    "title": "Fear of labor and delivery",
+    "content": "Fear of childbirth is common. Learning what to expect, practicing breathing and coping skills, and discussing a birth plan with your provider can reduce anxiety. Consider asking about pain management options and what support is available during labor.",
+    "link": "https://www.acog.org/womens-health",
+    "source": "ACOG (general)",
+    "type": "info_article",
+    "id": "info_044_birth-fear-fear-of-labor-and-delivery"
+  },
+  {
+    "topic": "body image",
+    "title": "Body image changes in pregnancy",
+    "content": "Body changes can trigger mixed emotions, especially if you’ve had past struggles with body image. It can help to focus on body function over appearance and to reduce comparisons. If body image distress is intense, talking with a counselor may help.",
+    "link": "https://www.who.int/news-room/questions-and-answers/item/stress",
+    "source": "WHO",
+    "type": "info_article",
+    "id": "info_045_body-image-body-image-changes-in-pregnan"
+  },
+  {
+    "topic": "loneliness",
+    "title": "Loneliness and isolation",
+    "content": "Feeling lonely during pregnancy can happen even if you have people around you. Small steps—joining a peer group, scheduling brief check-ins, or sharing one honest sentence with someone safe—can reduce isolation. You deserve support.",
+    "link": "https://postpartum.net/get-help/psi-online-support-meetings/",
+    "source": "PSI",
+    "type": "info_article",
+    "id": "info_046_loneliness-loneliness-and-isolation"
+  },
+  {
+    "topic": "grief and loss",
+    "title": "Pregnancy after loss or difficult experiences",
+    "content": "Pregnancy after a loss or difficult prior experience can bring heightened anxiety and grief. It may help to name what you’re carrying, build a support plan for appointments, and seek specialized counseling or peer support. Your feelings are valid.",
+    "link": "https://postpartum.net/get-help/psi-online-support-meetings/",
+    "source": "PSI",
+    "type": "info_article",
+    "id": "info_047_grief-and-loss-pregnancy-after-loss-or-d"
+  },
+  {
+    "id": "chat_001_anx_ultrasound",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "appointment_anxiety",
+    "triggers": [
+      "ultrasound",
+      "scan",
+      "appointment",
+      "results",
+      "doctor",
+      "clinic"
+    ],
+    "topic": "appointment anxiety",
+    "title": "Feeling anxious before an appointment",
+    "content": "It makes sense to feel nervous before an appointment—waiting and uncertainty can be really stressful. If it helps, try a 60‑second reset: inhale slowly, exhale longer than you inhale, and repeat a few times. You can also write down 1–2 questions you want to ask so you feel more prepared. What part of the appointment is worrying you most right now?",
+    "steps": [
+      "Try box breathing for 1 minute",
+      "Write your top 2 questions",
+      "Ask someone you trust to come with you if possible"
+    ],
+    "link": "/resources/breathing-box",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_002_anx_glucose",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "test_anxiety",
+    "triggers": [
+      "glucose",
+      "diabetes",
+      "gestational",
+      "test",
+      "screening",
+      "blood"
+    ],
+    "topic": "test anxiety",
+    "title": "Worry about a glucose test",
+    "content": "It’s very common to feel anxious before testing—many people worry about ‘what if’ outcomes. A helpful approach is to focus on what you can control: showing up, asking questions, and planning the next step with your care team if needed. Would you like a quick grounding exercise to reduce the worry spiral right now?",
+    "steps": [
+      "Try the 5‑4‑3‑2‑1 grounding exercise",
+      "List what you can control today",
+      "Prepare one question for your provider"
+    ],
+    "link": "/resources/grounding-54321",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_003_overwhelmed",
+    "type": "chat_response",
+    "emotion": "stressed",
+    "intent": "overwhelm",
+    "triggers": [
+      "overwhelmed",
+      "too much",
+      "can’t cope",
+      "exhausted",
+      "burnt out",
+      "stressed"
+    ],
+    "topic": "overwhelm",
+    "title": "When everything feels like too much",
+    "content": "When you’re overwhelmed, your brain is trying to protect you by sounding an alarm—so it can feel hard to think clearly. Let’s shrink the moment: pick one small next step (drink water, sit down, slow breathing, or text someone safe). If you tell me what’s piling up, I can help you choose one manageable step for the next 10 minutes.",
+    "steps": [
+      "Name 1 tiny next step",
+      "Slow exhale breathing for 60 seconds",
+      "Reach out to one supportive person"
+    ],
+    "link": "/resources/breathing-box",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_004_low_mood",
+    "type": "chat_response",
+    "emotion": "sad",
+    "intent": "low_mood",
+    "triggers": [
+      "sad",
+      "down",
+      "depressed",
+      "hopeless",
+      "crying",
+      "empty"
+    ],
+    "topic": "low mood",
+    "title": "Feeling down during pregnancy",
+    "content": "I’m sorry you’re feeling this way. Mood changes can happen during pregnancy, and feeling down doesn’t mean you’re failing—it means you need support. If it’s okay, can you share how long you’ve been feeling like this and whether anything specific triggered it? If these feelings are lasting or intense, it can also help to talk with a healthcare professional who supports perinatal mental health.",
+    "steps": [
+      "Do one gentle self‑care action (shower, food, rest)",
+      "Share how you’re feeling with someone you trust",
+      "Consider speaking to a care provider if it continues"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_005_panic",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "panic_symptoms",
+    "triggers": [
+      "panic",
+      "heart racing",
+      "can’t breathe",
+      "shortness of breath",
+      "tight chest",
+      "panic attack"
+    ],
+    "topic": "panic symptoms",
+    "title": "If you’re having panic-like symptoms",
+    "content": "That sounds scary—panic symptoms can feel intense, but they do pass. Try this: breathe in for 3, out for 6, and repeat for a minute. As you breathe out, gently relax your shoulders and jaw. Then look around and name 5 things you can see. Are you safe right now, and are the symptoms easing at all?",
+    "steps": [
+      "3‑in / 6‑out breathing for 60 seconds",
+      "Name 5 things you see",
+      "Sip water if available"
+    ],
+    "link": "/resources/grounding-54321",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_006_sleep_worry",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "sleep_worry",
+    "triggers": [
+      "can’t sleep",
+      "insomnia",
+      "sleep",
+      "awake",
+      "racing thoughts",
+      "night"
+    ],
+    "topic": "sleep worry",
+    "title": "Racing thoughts at night",
+    "content": "Racing thoughts can keep your body in ‘alert mode.’ A practical trick is to ‘park’ worries: write them down on paper, then write one tiny action for tomorrow (even ‘ask my doctor’ counts). After that, do something repetitive and calming like slow breathing or a short body scan. What time do you usually notice the worry starting?",
+    "steps": [
+      "Write worries + 1 next action",
+      "Dim lights and reduce screens",
+      "Try slow breathing for 2 minutes"
+    ],
+    "link": "/resources/breathing-box",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_007_relationship_stress",
+    "type": "chat_response",
+    "emotion": "stressed",
+    "intent": "relationship_stress",
+    "triggers": [
+      "partner",
+      "husband",
+      "wife",
+      "relationship",
+      "argue",
+      "fight",
+      "support"
+    ],
+    "topic": "relationship stress",
+    "title": "Stress with a partner or family member",
+    "content": "Relationship stress can feel heavier during pregnancy because you’re already carrying a lot physically and emotionally. If you want, we can sort this into: what you need, what you can ask for, and what boundary might help. What’s the biggest thing you wish your partner/family understood right now?",
+    "steps": [
+      "Name your need in one sentence",
+      "Pick one request you can make today",
+      "Plan a calm time to talk"
+    ],
+    "link": "",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_008_body_changes",
+    "type": "chat_response",
+    "emotion": "neutral",
+    "intent": "body_changes",
+    "triggers": [
+      "body",
+      "weight",
+      "appearance",
+      "stretch marks",
+      "self-esteem",
+      "image"
+    ],
+    "topic": "body changes",
+    "title": "Feeling uneasy about body changes",
+    "content": "Body changes can bring up a mix of emotions—pride, discomfort, worry, or grief. It may help to notice the story your mind is telling (‘I look…’) and replace it with a kinder truth (‘My body is doing something demanding and meaningful.’). What change has been hardest to adjust to?",
+    "steps": [
+      "Try a self‑compassion statement",
+      "Wear clothing that feels comfortable",
+      "Limit comparison triggers if possible"
+    ],
+    "link": "",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_009_baby_movement_worry",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "baby_movement_concern",
+    "triggers": [
+      "baby moving",
+      "no movement",
+      "kick counts",
+      "movement",
+      "fetal"
+    ],
+    "topic": "baby movement concern",
+    "title": "Worry about baby’s movement",
+    "content": "It’s understandable to feel worried about movement—many parents do. Because your health and your baby’s health are important, it’s best to follow your clinician’s guidance for movement concerns. If you notice a significant change or you’re unsure, consider contacting your care provider for advice. In the meantime, taking a slow breath and writing down what you’ve noticed can help you explain it clearly if you call.",
+    "steps": [
+      "Note what you’re noticing (time, pattern)",
+      "Use slow breathing to reduce panic",
+      "Contact a provider if you’re concerned"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_010_nausea_stress",
+    "type": "chat_response",
+    "emotion": "stressed",
+    "intent": "nausea_support",
+    "triggers": [
+      "nausea",
+      "morning sickness",
+      "vomit",
+      "sick",
+      "queasy"
+    ],
+    "topic": "nausea support",
+    "title": "Nausea is wearing you down",
+    "content": "Nausea can be exhausting—physically and emotionally. Small, frequent snacks, staying hydrated, and gentle rest can help. If nausea is severe or you can’t keep fluids down, it’s important to check in with a healthcare professional. How intense is it today (mild, moderate, or severe)?",
+    "steps": [
+      "Try small frequent snacks",
+      "Sip fluids regularly",
+      "Rest in short breaks"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_011_fatigue",
+    "type": "chat_response",
+    "emotion": "neutral",
+    "intent": "fatigue_support",
+    "triggers": [
+      "tired",
+      "fatigue",
+      "exhausted",
+      "no energy",
+      "sleepy"
+    ],
+    "topic": "fatigue support",
+    "title": "Pregnancy fatigue support",
+    "content": "Fatigue in pregnancy is very common, and it can make everything feel harder. If you can, choose one ‘energy-protecting’ action today: a short nap, a slow walk, or asking someone for help with one task. What’s one thing you could take off your plate today?",
+    "steps": [
+      "Choose one task to postpone",
+      "Take a short rest",
+      "Ask for help with one chore"
+    ],
+    "link": "",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_012_headache",
+    "type": "chat_response",
+    "emotion": "neutral",
+    "intent": "headache_concern",
+    "triggers": [
+      "headache",
+      "migraine",
+      "pressure",
+      "pain"
+    ],
+    "topic": "headache concern",
+    "title": "Headaches and stress",
+    "content": "Headaches can be linked with stress, sleep, hydration, and many other factors. Try hydration, a calm/dim environment, and gentle neck/shoulder relaxation. If headaches are severe, sudden, or concerning, it’s best to contact a healthcare professional for guidance. Want a 60‑second relaxation routine for your shoulders and jaw?",
+    "steps": [
+      "Drink water if you can",
+      "Relax jaw/shoulders",
+      "Contact provider if severe or unusual"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_013_back_pain",
+    "type": "chat_response",
+    "emotion": "neutral",
+    "intent": "back_pain_support",
+    "triggers": [
+      "back pain",
+      "lower back",
+      "hips",
+      "pelvic",
+      "ache"
+    ],
+    "topic": "back pain support",
+    "title": "Back discomfort support",
+    "content": "Back and hip discomfort can be common as your body changes. Gentle movement, supportive pillows, and light stretching can help. If pain is severe or you’re worried, check in with your provider. Where do you feel it most—lower back, hips, or pelvic area?",
+    "steps": [
+      "Try a gentle stretch",
+      "Use a pillow for support",
+      "Consider a warm (not hot) compress"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_014_heartburn",
+    "type": "chat_response",
+    "emotion": "neutral",
+    "intent": "heartburn_support",
+    "triggers": [
+      "heartburn",
+      "reflux",
+      "burning",
+      "acid"
+    ],
+    "topic": "heartburn support",
+    "title": "Heartburn can feel miserable",
+    "content": "Heartburn can be uncomfortable. Smaller meals, avoiding lying down right after eating, and sleeping slightly elevated can help. If symptoms are frequent or severe, a provider can suggest safe options. What seems to trigger it most—certain foods or late meals?",
+    "steps": [
+      "Try smaller meals",
+      "Avoid lying down after eating",
+      "Elevate head while sleeping"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_015_lonely",
+    "type": "chat_response",
+    "emotion": "sad",
+    "intent": "loneliness",
+    "triggers": [
+      "lonely",
+      "alone",
+      "no one",
+      "isolated",
+      "by myself"
+    ],
+    "topic": "loneliness",
+    "title": "Feeling alone",
+    "content": "Feeling lonely during pregnancy can be really painful, especially if you feel like others don’t fully get it. You deserve support. If you’re open to it, we can think about one small connection step—message a friend, join a supportive group, or talk with a provider. What kind of support would feel most helpful right now: listening, practical help, or reassurance?",
+    "steps": [
+      "Message one supportive person",
+      "Consider a support group",
+      "Talk to a provider if feelings persist"
+    ],
+    "link": "/community",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_016_irritable",
+    "type": "chat_response",
+    "emotion": "stressed",
+    "intent": "irritability",
+    "triggers": [
+      "angry",
+      "irritable",
+      "snapping",
+      "annoyed",
+      "rage"
+    ],
+    "topic": "irritability",
+    "title": "Irritability and mood swings",
+    "content": "Irritability can happen when your body is under strain—sleep changes, stress, and hormones can all play a role. A helpful reset is to pause, unclench your jaw, and take three slow exhales before responding. If you want, tell me what’s been setting you off most lately and we can plan one coping step.",
+    "steps": [
+      "Take 3 slow exhales",
+      "Name the trigger",
+      "Plan one boundary or break"
+    ],
+    "link": "",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_017_health_worry",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "health_anxiety",
+    "triggers": [
+      "worried about health",
+      "symptom",
+      "is this normal",
+      "something wrong",
+      "complication"
+    ],
+    "topic": "health anxiety",
+    "title": "Worrying about symptoms",
+    "content": "It’s natural to worry when your body feels different. If you’re concerned about a symptom, it can help to note what you’re feeling (when it started, how intense, what makes it better/worse) and share that with your provider. Emotionally, let’s try to separate ‘possibility’ from ‘probability’—your mind may be jumping to worst‑case scenarios. What symptom is on your mind right now?",
+    "steps": [
+      "Write symptom details",
+      "Contact provider if you’re worried",
+      "Use grounding to reduce ‘what if’ spirals"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_018_motivated",
+    "type": "chat_response",
+    "emotion": "positive",
+    "intent": "positive_reflection",
+    "triggers": [
+      "happy",
+      "excited",
+      "grateful",
+      "good",
+      "relieved",
+      "positive"
+    ],
+    "topic": "positive reflection",
+    "title": "Noticing a positive moment",
+    "content": "I’m glad you’re feeling this moment of positivity. It can help to ‘bank’ it: write one sentence about what’s going well and what helped create it, so you can come back to it on harder days. What’s been the best part of today so far?",
+    "steps": [
+      "Write one gratitude sentence",
+      "Share the moment with someone you trust",
+      "Notice one small win"
+    ],
+    "link": "/resources/journal",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_019_journaling",
+    "type": "chat_response",
+    "emotion": "neutral",
+    "intent": "journaling_support",
+    "triggers": [
+      "journal",
+      "write",
+      "prompt",
+      "reflect",
+      "diary"
+    ],
+    "topic": "journaling support",
+    "title": "Journaling for emotional clarity",
+    "content": "Writing can help untangle thoughts and reduce mental load. If you want a simple prompt: ‘Right now I feel…, because…, and what I need is…’. Want a guided prompt you can save in your journal?",
+    "steps": [
+      "Use the prompt ‘I feel… because… I need…’",
+      "Write for 3 minutes without editing",
+      "Circle one need you can act on"
+    ],
+    "link": "/resources/journal",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_020_grounding",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "grounding_request",
+    "triggers": [
+      "grounding",
+      "calm me",
+      "help me calm",
+      "panic",
+      "spiral"
+    ],
+    "topic": "grounding request",
+    "title": "Quick grounding to calm your body",
+    "content": "Let’s do a quick grounding reset. Look around and name: 5 things you see, 4 things you feel, 3 things you hear, 2 things you smell, and 1 thing you taste. Take one slow breath between each number. When you finish, tell me if your stress feels even 1% lower.",
+    "steps": [
+      "Do 5‑4‑3‑2‑1 grounding",
+      "Take one slow breath between steps",
+      "Check your stress level after"
+    ],
+    "link": "/resources/grounding-54321",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_021_work_stress",
+    "type": "chat_response",
+    "emotion": "stressed",
+    "intent": "work_stress",
+    "triggers": [
+      "work",
+      "job",
+      "boss",
+      "deadline",
+      "school",
+      "exam",
+      "assignment"
+    ],
+    "topic": "work stress",
+    "title": "Work or school stress while pregnant",
+    "content": "Balancing pregnancy with work or school can be a lot. A helpful approach is to reduce the load where you can: choose the top priority for today and postpone or delegate one smaller thing. If you tell me what’s due, I can help you pick the smallest next step to get momentum.",
+    "steps": [
+      "Pick 1 top priority",
+      "Break it into a 10‑minute step",
+      "Postpone/delegate one task"
+    ],
+    "link": "",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_022_healthcare_system",
+    "type": "chat_response",
+    "emotion": "stressed",
+    "intent": "provider_stress",
+    "triggers": [
+      "doctor",
+      "midwife",
+      "appointment",
+      "clinic",
+      "not listened",
+      "dismissed"
+    ],
+    "topic": "provider stress",
+    "title": "Feeling unheard by healthcare providers",
+    "content": "Feeling dismissed or not listened to can be really frustrating. You deserve respectful care. It can help to write down your symptoms and questions ahead of time and bring them with you, or ask for clarification in plain language. If you want, tell me what happened and we can draft a short message or question list for your next visit.",
+    "steps": [
+      "Write symptoms + timeline",
+      "Prepare 3 questions",
+      "Ask for clarification in plain language"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_023_parenting_fear",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "parenting_fear",
+    "triggers": [
+      "fear",
+      "bad mom",
+      "bad parent",
+      "not ready",
+      "scared to be a mother"
+    ],
+    "topic": "parenting fear",
+    "title": "Fear of becoming a parent",
+    "content": "A lot of people worry about whether they’ll be a ‘good parent.’ The fact that you care is already a strong sign. Instead of aiming for perfect, aim for ‘good enough’ and supported. What’s one specific fear you have about parenting that we can unpack together?",
+    "steps": [
+      "Name the fear specifically",
+      "List 1 support you can lean on",
+      "Replace perfection with ‘good enough’"
+    ],
+    "link": "",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_024_intrusive_thoughts",
+    "type": "chat_response",
+    "emotion": "anxious",
+    "intent": "intrusive_thoughts",
+    "triggers": [
+      "intrusive thoughts",
+      "scary thoughts",
+      "unwanted thoughts",
+      "images",
+      "ruminating"
+    ],
+    "topic": "intrusive thoughts",
+    "title": "Unwanted or intrusive thoughts",
+    "content": "Unwanted thoughts can be distressing, but having a thought doesn’t mean you want it or that it will happen. A helpful strategy is to label it: ‘This is an intrusive thought,’ then gently bring your attention back to the present (breath, feet on the floor, sounds around you). If these thoughts are frequent or intense, talking with a professional can really help. Would you like a grounding exercise now?",
+    "steps": [
+      "Label: ‘intrusive thought’",
+      "Ground with senses",
+      "Consider professional support if frequent"
+    ],
+    "link": "/resources/grounding-54321",
+    "source": "NurtureJoy curated"
+  },
+  {
+    "id": "chat_025_grief_loss",
+    "type": "chat_response",
+    "emotion": "sad",
+    "intent": "grief",
+    "triggers": [
+      "loss",
+      "miscarriage",
+      "previous loss",
+      "grief",
+      "trauma",
+      "anniversary"
+    ],
+    "topic": "grief",
+    "title": "Pregnancy after loss or trauma",
+    "content": "I’m really sorry—pregnancy after loss can bring up a lot of fear and grief. It’s understandable if you’re holding both hope and worry at the same time. Many people find it helpful to have extra support, gentle routines, and someone to talk to. If you want, you can share what feels hardest today and I’ll stay with you through it.",
+    "steps": [
+      "Name the feeling (fear, sadness, numbness)",
+      "Reach out to a trusted support",
+      "Consider specialized perinatal support"
+    ],
+    "link": "/resources/care-providers",
+    "source": "NurtureJoy curated"
   }
 ]
