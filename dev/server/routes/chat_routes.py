@@ -4,6 +4,12 @@ import json
 import random
 import joblib
 
+# Optional OpenAI client for (a) KB-grounded emotion selection and (b) KB response paraphrasing
+try:
+    from openai import OpenAI
+except Exception:
+    OpenAI = None
+
 from flask import Blueprint, request, jsonify
 from matplotlib import text
 from models.user_model import User
@@ -16,7 +22,12 @@ from models.chat_session import ChatSession
 from models.chat_message import ChatMessage
 from routes.auth_routes import get_user_from_token
 
-from ml.rag_retriever import retrieve_top_k
+
+# RAG retriever (TF-IDF over curated KB snippets)
+try:
+    from ml.rag_retriever import retrieve_top_k
+except Exception:
+    retrieve_top_k = None  # RAG is optional
 
 chat_bp = Blueprint("chat", __name__)
 
@@ -73,6 +84,271 @@ RESOURCE_LINKS = {
     "journal_prompt": "/resources/journal-prompts",
     "urgent_support": "/resources/urgent-support"
 }
+
+
+
+# ============================================================
+#  RAG RESPONSE (optional)
+#  PRIMARY response from KB when available; template is fallback.
+# ============================================================
+
+
+# ============================================================
+#  RAG-FIRST RESPONSE (optional)
+#  - If retrieval is confident: use KB to BOTH (a) categorize emotion (via metadata) and (b) produce final feedback.
+#  - If retrieval is weak/empty: fall back to TF-IDF + rule/template engine.
+# ============================================================
+
+RAG_MIN_SCORE = 0.18  # tune: higher -> fewer KB hits, more fallback
+LLM_MIN_CONFIDENCE = float(os.environ.get("LLM_MIN_CONFIDENCE", "0.55"))
+LLM_MAX_KB_CANDIDATES = int(os.environ.get("LLM_MAX_KB_CANDIDATES", "5"))
+LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-5-mini")
+
+def _get_openai_client():
+    """Create an OpenAI client if available and configured."""
+    if OpenAI is None:
+        return None
+    api_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENAI_APIKEY")
+    if not api_key:
+        return None
+    try:
+        return OpenAI(api_key=api_key)
+    except Exception:
+        return None
+
+
+def _llm_select_kb_and_emotion(user_text: str, candidates: list[dict]):
+    """Use an LLM as a *classifier* grounded to the provided KB candidates.
+
+    Returns dict: {emotion, confidence, selected_kb_id} or None on failure.
+    The model MUST select selected_kb_id from the provided candidates list.
+    """
+    client = _get_openai_client()
+    if client is None or not candidates:
+        return None
+
+    allowed_emotions = ["anxious", "stressed", "sad", "overwhelmed", "neutral", "positive", "unknown"]
+
+    cand_compact = []
+    for c in candidates:
+        cand_compact.append({
+            "id": str(c.get("id", "")),
+            "type": str(c.get("type", "")),
+            "emotion_hint": str(c.get("emotion", "")),
+            "intent": str(c.get("intent", "")),
+            "title": str(c.get("title", c.get("topic", "")))[:120],
+            "text": str(c.get("content", c.get("text", "")))[:700],
+        })
+
+    schema = {
+        "name": "emotion_selection",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "emotion": {"type": "string", "enum": allowed_emotions},
+                "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+                "selected_kb_id": {"type": "string"},
+            },
+            "required": ["emotion", "confidence", "selected_kb_id"],
+            "additionalProperties": False,
+        },
+        "strict": True,
+    }
+
+    sys_msg = (
+        "You are a classifier for a pregnancy emotional well-being support chatbot. "
+        "You will be given the user message and a list of KB candidates. "
+        "Choose the single best KB candidate ID from the list. "
+        "Output an emotion label and confidence. "
+        "Rules: (1) selected_kb_id MUST be one of the provided IDs. "
+        "(2) If none match well, set emotion='unknown' and confidence < 0.5 and still pick the closest ID."
+    )
+
+    try:
+        resp = client.responses.create(
+            model=LLM_MODEL,
+            input=[
+                {"role": "system", "content": sys_msg},
+                {"role": "user", "content": f"USER_MESSAGE:\n{user_text}\n\nKB_CANDIDATES_JSON:\n{json.dumps(cand_compact, ensure_ascii=False)}"},
+            ],
+            text={"format": {"type": "json_schema", "json_schema": schema}},
+        )
+        out_text = getattr(resp, "output_text", None) or ""
+        return json.loads(out_text) if out_text else None
+    except Exception:
+        # If Responses API isn't available in the installed SDK, try chat.completions as fallback (best-effort).
+        try:
+            comp = client.chat.completions.create(
+                model=LLM_MODEL,
+                messages=[
+                    {"role": "system", "content": sys_msg + " Return ONLY valid JSON with keys emotion, confidence, selected_kb_id."},
+                    {"role": "user", "content": f"USER_MESSAGE:\n{user_text}\n\nKB_CANDIDATES_JSON:\n{json.dumps(cand_compact, ensure_ascii=False)}"},
+                ],
+                temperature=0,
+            )
+            txt = comp.choices[0].message.content.strip()
+            return json.loads(txt)
+        except Exception:
+            return None
+
+
+def _llm_rewrite_kb_text(user_text: str, kb_text: str, emotion: str):
+    """Rewrite KB text to sound more human, without adding new facts."""
+    client = _get_openai_client()
+    if client is None or not kb_text:
+        return None
+
+    schema = {
+        "name": "rewrite",
+        "schema": {
+            "type": "object",
+            "properties": {"final_text": {"type": "string"}},
+            "required": ["final_text"],
+            "additionalProperties": False,
+        },
+        "strict": True,
+    }
+
+    sys_msg = (
+        "Rewrite the provided KB-based response to sound warm and human. "
+        "DO NOT add any new medical facts, diagnosis, or advice. "
+        "Keep meaning identical. Keep crisis guidance intact. "
+        "Keep it concise (<= 110 words)."
+    )
+
+    try:
+        resp = client.responses.create(
+            model=LLM_MODEL,
+            input=[
+                {"role": "system", "content": sys_msg},
+                {"role": "user", "content": f"USER_MESSAGE:\n{user_text}\n\nEMOTION:\n{emotion}\n\nKB_TEXT_TO_REWRITE:\n{kb_text}"},
+            ],
+            text={"format": {"type": "json_schema", "json_schema": schema}},
+        )
+        out_text = getattr(resp, "output_text", None) or ""
+        data = json.loads(out_text) if out_text else None
+        return (data or {}).get("final_text")
+    except Exception:
+        try:
+            comp = client.chat.completions.create(
+                model=LLM_MODEL,
+                messages=[
+                    {"role": "system", "content": sys_msg + ' Return ONLY JSON: {"final_text": "..."}'},
+                    {"role": "user", "content": f"USER_MESSAGE:\n{user_text}\n\nEMOTION:\n{emotion}\n\nKB_TEXT_TO_REWRITE:\n{kb_text}"},
+                ],
+                temperature=0.4,
+            )
+            txt = comp.choices[0].message.content.strip()
+            return json.loads(txt).get("final_text")
+        except Exception:
+            return None
+
+def _shorten(s: str, n: int = 260) -> str:
+    s = (s or "").strip()
+    if len(s) <= n:
+        return s
+    return s[: n - 1].rsplit(" ", 1)[0] + "…"
+
+def _rag_chat_response(user_text: str, max_items: int = 3):
+    """Return dict with KB-driven reply + metadata, or None if retrieval is not confident.
+
+    RAG-first behavior:
+      - Retrieve top-N KB candidates (default N=LLM_MAX_KB_CANDIDATES)
+      - Use an LLM (optional) to *select* the best KB entry and emotion label (classification only)
+      - Use KB text as the source of truth for the reply; optionally paraphrase KB text via LLM
+      - If retrieval is weak/empty, or LLM confidence is low, return None (caller falls back to TF-IDF templates)
+    """
+    if retrieve_top_k is None:
+        return None
+
+    # Get more candidates for the classifier step
+    try:
+        candidates = retrieve_top_k(user_text, k=LLM_MAX_KB_CANDIDATES, min_score=RAG_MIN_SCORE)
+    except Exception:
+        return None
+
+    if not candidates:
+        return None
+
+    # LLM selects KB id + emotion (grounded to candidates)
+    sel = _llm_select_kb_and_emotion(user_text, candidates)
+    selected_id = None
+    selected_emotion = None
+    sel_conf = 0.0
+    if isinstance(sel, dict):
+        selected_id = str(sel.get("selected_kb_id", "")).strip() or None
+        selected_emotion = str(sel.get("emotion", "")).strip() or None
+        try:
+            sel_conf = float(sel.get("confidence", 0.0))
+        except Exception:
+            sel_conf = 0.0
+
+    # If we have an LLM selection but it's not confident enough, treat as not confident -> fallback.
+    # (This matches the requirement: TF-IDF templates are the fallback engine.)
+    if selected_id and sel_conf < LLM_MIN_CONFIDENCE:
+        return None
+
+    # Pick main entry:
+    main = None
+    if selected_id:
+        for c in candidates:
+            if str(c.get("id", "")) == selected_id:
+                main = c
+                break
+
+    # If no LLM selection (no key configured), prefer chat_response; else top-1.
+    if main is None:
+        for item in candidates:
+            if str(item.get("type", "")) == "chat_response":
+                main = item
+                break
+    if main is None:
+        main = candidates[0]
+
+    etype = str(main.get("type", "info_article"))
+    # Emotion comes from KB if present; else from LLM selection; else neutral.
+    emotion = str(main.get("emotion", "")).strip() or (selected_emotion or "neutral")
+    if etype != "chat_response" and not selected_emotion:
+        # info articles often don't have emotion; keep neutral unless LLM provided one
+        emotion = emotion or "neutral"
+    intent = str(main.get("intent", "")) if etype == "chat_response" else ""
+    link = main.get("link") or ""
+
+    # Main response text comes from KB (chat_response.response stored in content/text).
+    main_text = str(main.get("content", main.get("text", ""))).strip()
+
+    # Optional paraphrase (LLM) to make KB text sound more human.
+    rewritten = _llm_rewrite_kb_text(user_text, main_text, emotion)
+    if rewritten and isinstance(rewritten, str) and len(rewritten.strip()) >= 20:
+        main_text = rewritten.strip()
+
+    # Build KB-only reply:
+    lines = [main_text]
+
+    # Supporting suggestions (top 2 other hits)
+    support = [h for h in candidates if h.get("id") != main.get("id")]
+    if support:
+        lines.append("")
+        lines.append("More helpful ideas:")
+        for item in support[: max(0, max_items - 1)]:
+            head = (str(item.get("title", "")).strip() or str(item.get("topic", "")).strip() or "Tip")
+            body = _shorten(str(item.get("content", item.get("text", ""))).strip(), 220)
+            src = str(item.get("source", "")).strip()
+            tail = f" — {src}" if src else ""
+            lines.append(f"• {head}: {body}{tail}")
+
+    # Gentle follow-up question (still KB-only)
+    lines.append("")
+    lines.append("What part of this feels most true for you right now?")
+
+    return {
+        "reply": "\n".join(lines).strip(),
+        "link": link,
+        "emotion": emotion or "neutral",
+        "intent": intent,
+        "hits": candidates[:max_items],
+        "selection": sel,
+    }
 
 # ============================================================
 #  AUTH HELPER (Bearer token stored in User.api_token)
@@ -465,34 +741,49 @@ def chat():
         }), 200
 
     # ------------------------------------------------------------
-    # EMOTION (2-stage TF-IDF)
+    # RAG-FIRST (classification-by-retrieval). TF-IDF templates are fallback.
     # ------------------------------------------------------------
-    emotion = predict_emotion_2stage(text)
-    bucket = pick_bucket(emotion, feats)
+    rag = _rag_chat_response(text, max_items=3)
+    if rag:
+        # Emotion/intent come from the KB entry metadata (RAG-based categorization)
+        emotion = rag.get("emotion", "neutral")
+        bucket = pick_bucket(emotion, feats)
 
-    # Save state
-    state["last_emotion"] = emotion
-    state["last_bucket"] = bucket
+        # Save state
+        state["last_emotion"] = emotion
+        state["last_bucket"] = bucket
 
-    # ------------------------------------------------------------
-    # TEMPLATE RESPONSE (v2)
-    # ------------------------------------------------------------
-    template = choose_template(emotion, bucket, user.id)
-    response_text = render_template(template, feats)
+        response_text = rag.get("reply")
+        kb_link = rag.get("link")
+        template = None
+    else:
+        # ------------------------------------------------------------
+        # FALLBACK: EMOTION (2-stage TF-IDF) + rule/template engine
+        # ------------------------------------------------------------
+        emotion = predict_emotion_2stage(text)
+        bucket = pick_bucket(emotion, feats)
 
-    # Provide follow-ups (template specific if present else defaults)
-    quick_replies = template.get("followups", [
+        # Save state
+        state["last_emotion"] = emotion
+        state["last_bucket"] = bucket
+
+        template = choose_template(emotion, bucket, user.id)
+        response_text = render_template(template, feats)
+        kb_link = None
+# Provide follow-ups (template specific if present else defaults)
+    quick_replies = (template.get("followups") if template else None) or [
         {"id": "breathing_help", "label": "Try a breathing exercise"},
         {"id": "journal_prompt", "label": "Try a journaling prompt"},
         {"id": "contact_provider", "label": "Message a care provider"},
         {"id": "community_support", "label": "Visit community"}
-    ])
+    ]
 
     return jsonify({
         "safety": "SAFE",
         "emotion": emotion,
         "bucket": bucket,
         "response": response_text,
+        "link": kb_link,
         "quick_replies": quick_replies
     }), 200
     
@@ -613,13 +904,23 @@ def send_message(session_id):
         db.session.commit()
         return jsonify({"message": bot_msg.to_dict()}), 200
 
-    # === EMOTION ===
+    # === RAG-FIRST (classification-by-retrieval). TF-IDF templates are fallback. ===
     feats = extract_features(text)
-    emotion = predict_emotion_2stage(text)
-    bucket = pick_bucket(emotion, feats)
 
-    template = choose_template(emotion, bucket, user.id)
-    bot_text = render_template(template, feats)
+    rag = _rag_chat_response(text, max_items=3)
+    if rag:
+        emotion = rag.get("emotion", "neutral")
+        bucket = pick_bucket(emotion, feats)
+        bot_text = rag.get("reply")
+        kb_link = rag.get("link")
+        template = None
+    else:
+        # Fallback to TF-IDF emotion + templates
+        emotion = predict_emotion_2stage(text)
+        bucket = pick_bucket(emotion, feats)
+        template = choose_template(emotion, bucket, user.id)
+        bot_text = render_template(template, feats)
+        kb_link = None
 
     bot_msg = ChatMessage(
         id=str(uuid.uuid4()),
@@ -627,11 +928,12 @@ def send_message(session_id):
         role="assistant",
         type="chat",
         text=bot_text,
-        quick_replies=template.get("followups", [
+        link=kb_link,
+        quick_replies=(template.get("followups") if template else None) or [
             {"id": "breathing_help", "label": "Try breathing"},
             {"id": "journal_prompt", "label": "Try journaling"},
             {"id": "community_support", "label": "Visit community"}
-        ])
+        ]
     )
 
     db.session.add(bot_msg)
