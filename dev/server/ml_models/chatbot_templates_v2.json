@@ -1,0 +1,648 @@
+{
+  "POSITIVE": {
+    "general": [
+      {
+        "id": "pos_gen_001",
+        "frame": [
+          "I’m really glad you shared this with me.",
+          "It sounds like you’re feeling genuinely encouraged right now, and that matters.",
+          "If you’d like, you can capture this as a “good moment” so you can revisit it on tougher days.",
+          "Would you like a small goal for today to keep this momentum going?"
+        ]
+      },
+      {
+        "id": "pos_gen_002",
+        "frame": [
+          "That’s such a warm update—thank you for telling me.",
+          "Noticing positive moments during pregnancy can be a powerful kind of self-care.",
+          "If it feels right, consider sharing one sentence about what helped you feel better today.",
+          "Do you want ideas for a simple routine to support this mood?"
+        ]
+      },
+      {
+        "id": "pos_gen_003",
+        "frame": [
+          "I love that you’re having a brighter moment.",
+          "Those “small wins” can be meaningful, especially when pregnancy feels like a lot.",
+          "If you want, write down what contributed to this feeling (rest, support, a good appointment, a kind message).",
+          "Would you like a quick gratitude prompt to save in your journal?"
+        ]
+      },
+      {
+        "id": "pos_gen_004",
+        "frame": [
+          "I’m happy to hear this.",
+          "It sounds like something today helped you feel steadier and more hopeful.",
+          "One way to build on this is to repeat the helpful thing once this week—something small and doable.",
+          "Would you like help choosing a tiny “repeatable” habit for the next few days?"
+        ]
+      },
+      {
+        "id": "pos_gen_005",
+        "frame": [
+          "Thanks for sharing this—your joy comes through.",
+          "Positive feelings don’t have to be big to be real; even a calm moment counts.",
+          "If you want, you can send a message to your {support} to let them know what helped.",
+          "Would you like a gentle reminder plan to protect this feeling (rest, hydration, a short walk)?"
+        ]
+      }
+    ],
+    "baby_movement": [
+      {
+        "id": "pos_move_001",
+        "frame": [
+          "That sounds like such a reassuring moment.",
+          "Feeling {topic} can bring a real sense of connection and relief.",
+          "If it helps, you can note the time and what you were doing—some people like tracking patterns.",
+          "Would you like a simple, non-clinical checklist of “what feels normal” vs “when to reach out” for peace of mind?"
+        ]
+      },
+      {
+        "id": "pos_move_002",
+        "frame": [
+          "I’m glad you shared that—what a special moment.",
+          "It makes sense that {topic} would lift your mood.",
+          "If you want, take one minute to breathe slowly and just enjoy this connection with your baby.",
+          "Would you like a short mindfulness prompt you can use anytime you feel this kind of relief?"
+        ]
+      }
+    ],
+    "appointment": [
+      {
+        "id": "pos_appt_001",
+        "frame": [
+          "I’m really glad your {topic} felt positive.",
+          "Good updates after an appointment can bring a lot of relief and confidence.",
+          "If you’d like, you can write down the key takeaways (what went well, any next steps) so it feels clear later.",
+          "Do you want help turning those takeaways into a simple plan for the next week?"
+        ]
+      },
+      {
+        "id": "pos_appt_002",
+        "frame": [
+          "That’s a great outcome—thanks for sharing.",
+          "It sounds like today helped you feel more grounded in your pregnancy journey.",
+          "If you want, you can celebrate with a small self-care action (rest, a nourishing meal, a short walk).",
+          "Would you like a couple of “recovery after appointment” ideas?"
+        ]
+      }
+    ]
+  },
+  "NEUTRAL": {
+    "general": [
+      {
+        "id": "neu_gen_001",
+        "frame": [
+          "Thanks for checking in with me.",
+          "Feeling neutral or “just okay” is completely normal—pregnancy has a lot of steady days too.",
+          "If you want, we can do a quick body check-in: hydration, food, rest, and one small comfort action.",
+          "Would you like a short checklist for a steady day?"
+        ]
+      },
+      {
+        "id": "neu_gen_002",
+        "frame": [
+          "I hear you—sounds like a steady day.",
+          "Sometimes “nothing dramatic” is actually a sign you’re getting through things one step at a time.",
+          "If you want, you can pick one small supportive habit for today (water, stretch, short walk, early bedtime).",
+          "Which would help most right now: energy, mood, or sleep?"
+        ]
+      },
+      {
+        "id": "neu_gen_003",
+        "frame": [
+          "Thanks for sharing how today feels.",
+          "Neutral days can be a good time to gently plan—without pressure.",
+          "If you’d like, we can set one tiny goal related to {topic} or your comfort (like managing {symptom}).",
+          "Would you like one simple suggestion tailored to what you mentioned?"
+        ]
+      },
+      {
+        "id": "neu_gen_004",
+        "frame": [
+          "It makes sense—some days are just “in the middle.”",
+          "If you want, a short routine can help keep things stable: drink water, eat something nourishing, take 5 slow breaths.",
+          "You don’t need to fix anything today—just support yourself.",
+          "Would you like a 60-second breathing reset now?"
+        ]
+      },
+      {
+        "id": "neu_gen_005",
+        "frame": [
+          "I’m here with you.",
+          "A neutral day is a good chance to notice small signals from your body without judging them.",
+          "If {symptom} is present, we can focus on comfort strategies that are gentle and low effort.",
+          "Would you like tips for managing {symptom} in a simple, non-clinical way?"
+        ]
+      }
+    ],
+    "sleep": [
+      {
+        "id": "neu_sleep_001",
+        "frame": [
+          "Thanks for sharing—sleep changes are common during pregnancy.",
+          "Even if you feel “okay,” sleep can quietly affect mood and stress levels.",
+          "A small step could be a calming wind-down: dim lights, phone away, slow breathing for 2 minutes.",
+          "Would you like a short bedtime routine you can follow tonight?"
+        ]
+      },
+      {
+        "id": "neu_sleep_002",
+        "frame": [
+          "I hear you—sleep can be inconsistent, especially with {symptom}.",
+          "If you want, try one gentle adjustment: a consistent bedtime window or a short relaxation cue.",
+          "Small changes add up over a week.",
+          "Would you prefer a breathing exercise or a simple “sleep-friendly” checklist?"
+        ]
+      }
+    ]
+  },
+  "ANXIETY": {
+    "ultrasound": [
+      {
+        "id": "anx_ultra_001",
+        "frame": [
+          "I can hear that the {topic} is weighing on your mind.",
+          "Waiting for results can feel really unsettling, especially during pregnancy.",
+          "One thing that can help is focusing on what you can control today—rest, hydration, and writing down questions for your provider.",
+          "Would you like a short grounding exercise while you wait?"
+        ]
+      },
+      {
+        "id": "anx_ultra_002",
+        "frame": [
+          "It makes sense that you’d feel anxious about the {topic}.",
+          "When your mind is racing, it can help to separate “what I know” from “what I fear.”",
+          "If you want, write one sentence of facts you have and one sentence of worries—then pause and breathe slowly.",
+          "Would you like a simple script for what to ask at your next appointment?"
+        ]
+      },
+      {
+        "id": "anx_ultra_003",
+        "frame": [
+          "I hear you—this sounds like worry that keeps looping.",
+          "Ultrasound waiting periods can be tough because there’s uncertainty and a lot of emotion.",
+          "A helpful step is to limit repeated searching online and instead make a short question list for your care team.",
+          "Would you like a 2-minute breathing exercise to calm your body right now?"
+        ]
+      },
+      {
+        "id": "anx_ultra_004",
+        "frame": [
+          "Thank you for sharing this—your worry feels real.",
+          "It’s understandable to feel anxious when you’re waiting for information about your baby.",
+          "Try this: place one hand on your chest, breathe in for 4, out for 6, and repeat 5 times.",
+          "Would you like a calming phrase you can repeat while you wait?"
+        ]
+      },
+      {
+        "id": "anx_ultra_005",
+        "frame": [
+          "I can tell this is sitting heavily with you.",
+          "When you’re anxious, your body can feel tense even if nothing is happening in the moment.",
+          "A small, practical step: pick one comfort action now (water, snack, short walk) and one planning action (write 3 questions).",
+          "Which one would help more right now—comfort or planning?"
+        ]
+      }
+    ],
+    "glucose_test": [
+      {
+        "id": "anx_gluc_001",
+        "frame": [
+          "It makes sense to feel anxious about the {topic}.",
+          "Health tests can trigger a lot of “what if” thoughts, even before you have results.",
+          "If you want, focus on controllables: steady meals, hydration, and a question list for your provider—without spiraling into worst-case scenarios.",
+          "Would you like a grounding exercise to help your mind slow down?"
+        ]
+      },
+      {
+        "id": "anx_gluc_002",
+        "frame": [
+          "I hear you—this sounds like uncertainty anxiety.",
+          "A helpful approach is to treat this as information gathering, not a verdict.",
+          "Try a “worry window”: set 5 minutes to write worries, then close it and do something calming.",
+          "Want a short template for that worry window?"
+        ]
+      },
+      {
+        "id": "anx_gluc_003",
+        "frame": [
+          "Thanks for telling me—this kind of worry is common.",
+          "When your mind jumps ahead, it can help to come back to the present moment with your breath and senses.",
+          "Try 5-4-3-2-1 grounding (see, feel, hear, smell, taste).",
+          "Would you like me to guide you through it in 30 seconds?"
+        ]
+      }
+    ],
+    "labor": [
+      {
+        "id": "anx_labor_001",
+        "frame": [
+          "I hear that {topic} is bringing up a lot of worry.",
+          "It’s normal to feel anxious about something as unknown and important as birth.",
+          "A practical step is to pick one small piece of preparation you can do this week (one question for your provider or one comfort item).",
+          "Would you like a simple “birth worries → questions” converter list?"
+        ]
+      },
+      {
+        "id": "anx_labor_002",
+        "frame": [
+          "It makes sense that your thoughts keep returning to {topic}.",
+          "Anxiety often tries to solve the future all at once.",
+          "Try shrinking the time horizon: ask yourself, “What do I need today?” not “What might happen later?”",
+          "Would you like a short calming script for when worry spikes?"
+        ]
+      },
+      {
+        "id": "anx_labor_003",
+        "frame": [
+          "Thank you for sharing—this sounds like fear mixed with uncertainty.",
+          "When anxiety rises, your body needs calming before your mind can feel reassured.",
+          "Try box breathing: in 4, hold 4, out 4, hold 4, repeat 4 times.",
+          "Want to do one round together now?"
+        ]
+      }
+    ],
+    "symptoms": [
+      {
+        "id": "anx_symp_001",
+        "frame": [
+          "I hear that {symptom} is making you feel worried.",
+          "It’s common to feel anxious when your body changes quickly during pregnancy.",
+          "A helpful step is to track what you notice (when it happens, what helps) and bring that to your provider—without constantly checking and re-checking.",
+          "Would you like a simple symptom note template?"
+        ]
+      },
+      {
+        "id": "anx_symp_002",
+        "frame": [
+          "That sounds like anxious monitoring—thank you for sharing it.",
+          "When you’re worried, your brain looks for certainty by scanning for symptoms.",
+          "Try a gentle reset: breathe slowly and do one grounding action (sit, sip water, relax shoulders).",
+          "Would you like tips for reducing “symptom spirals”?"
+        ]
+      },
+      {
+        "id": "anx_symp_003",
+        "frame": [
+          "I can tell this is making you uneasy.",
+          "It can help to separate discomfort from danger—your provider can guide you, and you don’t have to solve it alone.",
+          "If you can, write down 2 facts you know and 1 question for your next check-in.",
+          "Would you like help turning your worry into a clear question?"
+        ]
+      }
+    ],
+    "general": [
+      {
+        "id": "anx_gen_001",
+        "frame": [
+          "It sounds like worry is taking up a lot of space right now.",
+          "Anxiety can feel loud, especially when you’re already tired or dealing with change.",
+          "A small step: choose one calming tool (breathing, grounding) and one practical tool (write questions, make a plan).",
+          "Which would you like first—calming or planning?"
+        ]
+      },
+      {
+        "id": "anx_gen_002",
+        "frame": [
+          "Thanks for sharing—this sounds stressful and uncertain.",
+          "When anxious thoughts keep looping, it helps to label them: “This is a worry story, not a fact.”",
+          "Try writing your worry in one sentence, then write one realistic alternative.",
+          "Want a quick example of how to do that?"
+        ]
+      },
+      {
+        "id": "anx_gen_003",
+        "frame": [
+          "I hear you—this sounds like anxiety that won’t settle.",
+          "A short reset can help your nervous system: longer exhale than inhale (in 4, out 6).",
+          "Do that for 5 breaths, then check: did your tension drop even 5%?",
+          "Would you like another tool if the worry returns?"
+        ]
+      },
+      {
+        "id": "anx_gen_004",
+        "frame": [
+          "It makes sense that you’re feeling anxious.",
+          "Sometimes anxiety is your brain trying to protect you—but it can overshoot.",
+          "Try a “next best step” approach: what’s one helpful action you can do in the next 10 minutes?",
+          "Would you like ideas for a next-best step based on your message?"
+        ]
+      }
+    ]
+  },
+  "STRESS": {
+    "work": [
+      {
+        "id": "str_work_001",
+        "frame": [
+          "It sounds like you’re carrying a lot and feeling overloaded.",
+          "Pregnancy plus work demands can create real pressure, especially when your energy is limited.",
+          "A helpful step is to choose one small boundary (a break, a shorter task list, or asking for support) and stick to it today.",
+          "Would you like help turning your biggest stressor into a 10-minute next step?"
+        ]
+      },
+      {
+        "id": "str_work_002",
+        "frame": [
+          "I hear you—this sounds like real overwhelm.",
+          "When everything feels urgent, it helps to sort tasks into “must today” vs “can wait.”",
+          "Try picking just 1–2 must-do items, then stop.",
+          "Do you want a quick template for prioritizing your day?"
+        ]
+      },
+      {
+        "id": "str_work_003",
+        "frame": [
+          "Thanks for sharing this—stress can be exhausting.",
+          "If you can, try a micro-break: 60 seconds of slow breathing and relaxing your shoulders.",
+          "Then choose one small task you can finish quickly—completion reduces overload.",
+          "Would you like a short breathing reset right now?"
+        ]
+      }
+    ],
+    "preparation": [
+      {
+        "id": "str_prep_001",
+        "frame": [
+          "It sounds like the preparation side of pregnancy is piling up.",
+          "Planning for {topic} can feel like a huge mental load.",
+          "A useful strategy is to pick one tiny preparation item per day instead of trying to solve everything at once.",
+          "Would you like a simple “one thing per day” plan for the next week?"
+        ]
+      },
+      {
+        "id": "str_prep_002",
+        "frame": [
+          "I hear you—this sounds like too much at once.",
+          "When the checklist grows, stress grows with it.",
+          "Try a “minimum viable plan”: what are the 3 most important things for this week only?",
+          "Want help choosing your top 3?"
+        ]
+      },
+      {
+        "id": "str_prep_003",
+        "frame": [
+          "Thank you for sharing—this kind of stress is common.",
+          "It can help to put your to-dos outside your head: write them down, then circle only what matters this week.",
+          "Small progress is still progress.",
+          "Would you like a short checklist format you can copy into your notes?"
+        ]
+      }
+    ],
+    "fatigue": [
+      {
+        "id": "str_fat_001",
+        "frame": [
+          "It sounds like exhaustion is adding to your stress.",
+          "When your body is tired, everything feels harder—mentally and emotionally.",
+          "A small step might be choosing one recovery action today (rest, hydration, stretching, early sleep).",
+          "Would you like a low-effort recovery plan for the next 24 hours?"
+        ]
+      },
+      {
+        "id": "str_fat_002",
+        "frame": [
+          "I hear you—fatigue can make stress feel nonstop.",
+          "Try a “reduce the load” approach: lower expectations for today and focus on essentials.",
+          "If possible, ask {support} for one specific help request (one task, one errand).",
+          "Would you like help wording that request?"
+        ]
+      },
+      {
+        "id": "str_fat_003",
+        "frame": [
+          "That sounds really draining.",
+          "A quick nervous-system reset can help: inhale 4, exhale 6, repeat 5 times.",
+          "Then do one small comfort action (water, snack, sit down, stretch).",
+          "Would you like a list of comfort actions that work well during pregnancy?"
+        ]
+      }
+    ],
+    "relationship": [
+      {
+        "id": "str_rel_001",
+        "frame": [
+          "It sounds like this is creating tension and adding to your stress.",
+          "Pregnancy can change dynamics and expectations in relationships, and that can feel heavy.",
+          "A small step is to name one need clearly (rest, reassurance, help with a task) rather than trying to explain everything at once.",
+          "Would you like a simple message you can send to {support}?"
+        ]
+      },
+      {
+        "id": "str_rel_002",
+        "frame": [
+          "I hear you—this sounds stressful and emotionally tiring.",
+          "When stress rises, communication can get harder.",
+          "Try using one sentence about how you feel + one sentence about what would help.",
+          "Want a quick example tailored to what you wrote?"
+        ]
+      }
+    ],
+    "general": [
+      {
+        "id": "str_gen_001",
+        "frame": [
+          "It sounds like you’re overwhelmed right now.",
+          "Stress often shows up when there’s too much to carry and not enough recovery time.",
+          "Try picking one small step you can do in 10 minutes—then pause and reassess.",
+          "Would you like help choosing that 10-minute step?"
+        ]
+      },
+      {
+        "id": "str_gen_002",
+        "frame": [
+          "Thanks for sharing—this sounds like a lot.",
+          "A helpful approach is to reduce the mental load: write down what’s stressing you, then circle what you can control today.",
+          "Even one small controlled step can reduce overwhelm.",
+          "Would you like a quick “control vs can’t control” prompt?"
+        ]
+      },
+      {
+        "id": "str_gen_003",
+        "frame": [
+          "I hear you—this stress feels heavy.",
+          "A short reset can help your body feel safer: slow breathing, relax shoulders, unclench jaw.",
+          "Then choose one supportive action: water, food, rest, or a short walk.",
+          "Which supportive action feels most realistic right now?"
+        ]
+      },
+      {
+        "id": "str_gen_004",
+        "frame": [
+          "It makes sense you’re feeling stressed.",
+          "When your energy is limited, it helps to lower expectations and focus on essentials only.",
+          "Try: ‘What are the two things I truly need today?’",
+          "Want to tell me what feels most urgent so we can simplify it?"
+        ]
+      }
+    ]
+  },
+  "LOW_MOOD": {
+    "loneliness": [
+      {
+        "id": "mood_lon_001",
+        "frame": [
+          "I’m really sorry you’re feeling this way, and I’m glad you shared it.",
+          "Feeling lonely during pregnancy can happen even if people are around—it doesn’t mean you’re doing anything wrong.",
+          "A small step could be sending one short message to {support} or joining a community thread where you feel understood.",
+          "Would you like a gentle prompt for what to say when you don’t know how to start?"
+        ]
+      },
+      {
+        "id": "mood_lon_002",
+        "frame": [
+          "Thank you for sharing—this sounds emotionally heavy.",
+          "Loneliness can make everything feel bigger and harder.",
+          "If you can, try one small connection today: a message, a call, or a community post with one sentence about how you feel.",
+          "Would you like me to suggest a simple one-sentence post?"
+        ]
+      },
+      {
+        "id": "mood_lon_003",
+        "frame": [
+          "I hear you—this sounds like you’re feeling isolated.",
+          "Sometimes what helps is ‘low-pressure connection’—not a big talk, just a small check-in.",
+          "If you can, pick one person and send: “I’m having a tough day—can you check in with me later?”",
+          "Would you like a few more low-pressure options?"
+        ]
+      }
+    ],
+    "body_image": [
+      {
+        "id": "mood_body_001",
+        "frame": [
+          "I hear you—body changes can be emotionally tough.",
+          "It makes sense that this could affect your mood, especially when your body feels unfamiliar.",
+          "A helpful reframe is to focus on function over appearance: your body is doing something demanding and meaningful.",
+          "Would you like a short self-compassion prompt for days when body image feels hard?"
+        ]
+      },
+      {
+        "id": "mood_body_002",
+        "frame": [
+          "Thank you for sharing—this sounds like a tender area for you.",
+          "Pregnancy can bring up a lot of feelings about identity and control.",
+          "If it helps, choose one neutral statement you can repeat: “My body is changing, and I can be gentle with myself.”",
+          "Would you like a few neutral statements to choose from?"
+        ]
+      }
+    ],
+    "fatigue": [
+      {
+        "id": "mood_fat_001",
+        "frame": [
+          "I’m sorry you’re feeling low—fatigue can really pull mood down.",
+          "When your body is tired, motivation and hope can feel harder to access.",
+          "A small step might be a ‘minimum day’ plan: food, water, one comfort activity, and rest.",
+          "Would you like a gentle minimum-day checklist?"
+        ]
+      },
+      {
+        "id": "mood_fat_002",
+        "frame": [
+          "I hear you—this sounds draining emotionally and physically.",
+          "Sometimes the goal isn’t to feel great, it’s just to feel 5% lighter.",
+          "Try one small comfort step: warm shower, snack, or sitting outside for 2 minutes.",
+          "Would you like comfort ideas that fit your energy level right now?"
+        ]
+      }
+    ],
+    "general": [
+      {
+        "id": "mood_gen_001",
+        "frame": [
+          "I’m really sorry you’re feeling low, and I’m glad you told me.",
+          "Low mood during pregnancy can happen and it deserves care—without judgment.",
+          "A gentle first step is to reduce pressure: pick one small supportive action and let that be enough for today.",
+          "Would you like a few low-effort ideas based on what you mentioned?"
+        ]
+      },
+      {
+        "id": "mood_gen_002",
+        "frame": [
+          "Thank you for sharing—this sounds emotionally heavy.",
+          "When mood is low, your mind may tell you nothing will help, but small steps can still matter.",
+          "Try: one calming breath + one basic need (water, food, rest).",
+          "Would you like a tiny plan for the next hour?"
+        ]
+      },
+      {
+        "id": "mood_gen_003",
+        "frame": [
+          "I hear you—this sounds tough.",
+          "If it helps, we can name what’s hardest right now: thoughts, body feelings, or situation.",
+          "Then we choose one gentle support action for that area.",
+          "Which feels most difficult right now—your thoughts, your body, or your situation?"
+        ]
+      },
+      {
+        "id": "mood_gen_004",
+        "frame": [
+          "I’m sorry you’re going through this.",
+          "A helpful approach is self-compassion: speak to yourself like you would to a friend in your situation.",
+          "Try: “This is hard, and I’m doing my best.”",
+          "Would you like a few more phrases you can use when things feel heavy?"
+        ]
+      },
+      {
+        "id": "mood_gen_005",
+        "frame": [
+          "Thank you for trusting me with this.",
+          "Low mood can make everything feel slower and harder, especially with pregnancy changes.",
+          "If possible, reach out to {support} for one small support request (a check-in, help with a task, a walk together).",
+          "Would you like help wording that request in a simple way?"
+        ]
+      }
+    ]
+  },
+  "HIGH_DISTRESS": {
+    "general": [
+      {
+        "id": "hd_001",
+        "frame": [
+          "I’m really sorry you’re feeling this way, and I’m glad you reached out.",
+          "If you feel unsafe or might hurt yourself, please contact emergency services or a local crisis line right now.",
+          "If you can, reach out to someone you trust and let them know you need support immediately.",
+          "Would you like help finding a local support resource?"
+        ]
+      },
+      {
+        "id": "hd_002",
+        "frame": [
+          "Thank you for telling me—this sounds intense and painful.",
+          "If there’s any risk you might harm yourself, please seek immediate help from emergency services or a crisis support line in your area.",
+          "You deserve real support from a professional and from people around you.",
+          "Is there someone nearby you can contact right now—{support} or a trusted friend?"
+        ]
+      },
+      {
+        "id": "hd_003",
+        "frame": [
+          "I’m really concerned about how overwhelmed you feel.",
+          "If you’re in danger or feel you might act on these thoughts, please contact emergency services right away.",
+          "If you can, move to a safer space and reach out to someone you trust for immediate support.",
+          "Would you like a short message you can copy/paste to ask for urgent help?"
+        ]
+      },
+      {
+        "id": "hd_004",
+        "frame": [
+          "I’m glad you shared this—please don’t carry it alone.",
+          "If you feel unsafe, please seek immediate help (emergency services or local crisis support).",
+          "If you can, tell someone nearby what’s happening and stay with them.",
+          "Do you want me to give you a simple step-by-step “right now” plan to stay safe?"
+        ]
+      },
+      {
+        "id": "hd_005",
+        "frame": [
+          "Thank you for reaching out. I’m really sorry you’re in this much pain.",
+          "If you might hurt yourself, please contact emergency services or a crisis line immediately.",
+          "You deserve support and you don’t have to solve this alone.",
+          "Would it help to list one person you can contact right now and one place you can go where you feel safer?"
+        ]
+      }
+    ]
+  }
+}
