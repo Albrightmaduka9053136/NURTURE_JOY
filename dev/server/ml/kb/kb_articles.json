@@ -1,0 +1,44 @@
+[
+  {
+    "id": "kb_ultrasound_waiting",
+    "title": "Waiting for ultrasound results",
+    "text": "Waiting for ultrasound results can feel stressful. Many clinics review results and share them at the next appointment unless something urgent appears. If you want, you can write down 2–3 questions you’d like to ask your provider and use a short grounding exercise while you wait.",
+    "tags": ["ultrasound", "scan", "results", "anxiety"],
+    "link": "/resources/grounding-54321"
+  },
+  {
+    "id": "kb_glucose_test",
+    "title": "Glucose test (gestational diabetes screening)",
+    "text": "The glucose test is a common screening during pregnancy. It can help your care team understand how your body is processing sugar at this stage. If you’re feeling worried, it may help to note your questions ahead of time (e.g., what the next steps are if results are outside the expected range).",
+    "tags": ["glucose", "gestational diabetes", "screening", "test", "anxiety"],
+    "link": "/resources/care-providers"
+  },
+  {
+    "id": "kb_labor_worry",
+    "title": "Feeling anxious about labor and delivery",
+    "text": "It’s common to feel anxious about labor and delivery, especially when things feel unknown. Some people find it helpful to focus on one small step: make a short list of questions for your provider, and practice a calming technique like box breathing. Having a plan can reduce uncertainty.",
+    "tags": ["labor", "delivery", "birth", "anxiety"],
+    "link": "/resources/breathing-box"
+  },
+  {
+    "id": "kb_sleep_stress",
+    "title": "Sleep and stress during pregnancy",
+    "text": "Sleep changes can happen during pregnancy, and stress can make it harder to fall asleep. A gentle routine can help: reduce screens before bed, try slow breathing, and use grounding if your thoughts are racing. If sleep problems feel persistent or severe, consider discussing them with a care provider.",
+    "tags": ["sleep", "insomnia", "stress", "anxiety"],
+    "link": "/resources/breathing-box"
+  },
+  {
+    "id": "kb_support_reaching_out",
+    "title": "Reaching out for support",
+    "text": "If you’re feeling emotionally weighed down, reaching out to someone supportive can help. You might message a care provider, talk to a trusted person, or connect with a community space. If you’d like, you can also try a short journaling prompt to put your feelings into words.",
+    "tags": ["support", "provider", "community", "journal"],
+    "link": "/resources/journal-prompts"
+  },
+  {
+    "id": "kb_urgent_support",
+    "title": "Urgent emotional support",
+    "text": "If you feel like you might harm yourself or you’re not safe, it’s important to seek urgent help right away. If you can, contact local emergency services or a crisis line in your area. You can also reach out to a trusted person nearby.",
+    "tags": ["urgent", "crisis", "self-harm", "safety"],
+    "link": "/resources/urgent-support"
+  }
+]
