@@ -54,3 +54,5 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User {self.username}>"
+    
+moods = db.relationship("Mood", backref="user", lazy=True)
