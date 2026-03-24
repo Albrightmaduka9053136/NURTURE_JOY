@@ -6,6 +6,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database.db import db
 from models.user_model import User
 
+from utils.logger import setup_logger
+logger = setup_logger()
+
 auth_bp = Blueprint("auth", __name__)
 
 # ===============================
@@ -83,6 +86,8 @@ def login():
 
     email = data.get("email")
     password = data.get("password")
+    
+    
 
     if not email or not password:
         return jsonify({"error": "Missing email or password"}), 400
@@ -95,6 +100,8 @@ def login():
     if not check_password_hash(user.password, password):
         return jsonify({"error": "Invalid credentials"}), 401
 
+    logger.info(f"Login attempt for user: {email}")
+    
     # Generate new token
     token = secrets.token_hex(32)
     user.api_token = token
@@ -117,6 +124,8 @@ def logout():
     if not user:
         return jsonify({"error": "Unauthorized"}), 401
 
+    logger.info(f"Logout attempt for user: {user.email}")
+    
     user.api_token = None
     db.session.commit()
 

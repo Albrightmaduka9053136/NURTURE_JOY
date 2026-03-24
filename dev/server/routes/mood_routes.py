@@ -2,6 +2,9 @@ from flask import Blueprint, request, jsonify
 from database.db import db
 from models.mood_model import Mood
 from routes.auth_routes import get_user_from_token
+from utils.logger import setup_logger
+
+logger = setup_logger()
 
 mood_bp = Blueprint("mood", __name__)
 
@@ -31,6 +34,7 @@ def track_mood():
     db.session.add(new_mood)
     db.session.commit()
 
+    logger.info(f"Mood entry recorded for user_id: {user.id}")
     return jsonify({
         "message": "Mood logged successfully",
         "mood": new_mood.to_dict()

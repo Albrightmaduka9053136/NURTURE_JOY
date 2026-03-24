@@ -21,7 +21,9 @@ from database.db import db
 from models.chat_session import ChatSession
 from models.chat_message import ChatMessage
 from routes.auth_routes import get_user_from_token
+from utils.logger import setup_logger
 
+logger = setup_logger()
 
 # RAG retriever (TF-IDF over curated KB snippets)
 try:
@@ -848,6 +850,7 @@ def send_message(session_id):
     if session.ended:
         return jsonify({"error": "Session ended"}), 400
 
+    logger.info("Chat request received from user.")
     data = request.get_json() or {}
     text = str(data.get("text", "")).strip()
 
@@ -957,7 +960,8 @@ def get_history(session_id):
     messages = ChatMessage.query.filter_by(session_id=session_id)\
         .order_by(ChatMessage.timestamp.asc())\
         .all()
-
+    logger.info(f"Chat history request received for user, {user.email}.")
+    
     return jsonify({
         "session_id": session_id,
         "turns": session.turns,
@@ -1081,6 +1085,7 @@ def end_session(session_id):
     if session.ended:
         return jsonify({"error": "Session already ended"}), 400
 
+    logger.info(f"End session request received for user: {user.email}")
     session.ended = True
     session.ended_at = datetime.utcnow()
 
