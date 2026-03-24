@@ -11,9 +11,12 @@ from routes.journal_routes import journal_bp
 import joblib
 import json
 
-
+from utils.logger import setup_logger
+logger = setup_logger()
 
 app = Flask(__name__)
+
+logger.info("NurtureJoy application has started successfully.")
 
 app.config["SAFETY_MODEL"] = joblib.load("ml_models/nurturejoy_safety_model_v2.joblib")
 app.config["STAGE1_VECTORIZER"] = joblib.load("ml_models/stage1_tfidf.joblib")
@@ -28,8 +31,7 @@ app.register_blueprint(chat_bp)   # Register chat routes blueprint after definin
 app.register_blueprint(mood_bp)   # Register mood routes blueprint after defining it in mood_routes.py
 app.register_blueprint(journal_bp)   # Register journal routes blueprint after defining it in journal_routes.py
 
-app.secret_key = os.urandom(24)
-# app.config["SESSION_KEY"] = "eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImphbmUifQ.aZQCIw.iuLocljSzNr9SaNzpx6jqWREahY"
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key-change-me")
 
 app.config.from_object(Config)
 
@@ -47,4 +49,4 @@ def home():
     return {"message": "Nurture Joy Backend Running Successfully"}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=os.getenv("FLASK_ENV") != "production")
