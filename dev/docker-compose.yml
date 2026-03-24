@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./server
+    container_name: nurturejoy-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      FLASK_ENV: production
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server/logs:/app/logs
+
+  frontend:
+    build:
+      context: ./client
+      args:
+        REACT_APP_API_BASE_URL: /
+    container_name: nurturejoy-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"

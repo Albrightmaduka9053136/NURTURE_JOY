@@ -1,0 +1,10 @@
+2026-03-23 22:54:48,094 - nurturejoy - INFO - NurtureJoy application has started successfully.
+2026-03-23 22:55:08,257 - nurturejoy - INFO - Login attempt for user: kelly@gmail.com
+2026-03-23 22:55:15,836 - nurturejoy - INFO - End session request received for user: kelly@gmail.com
+2026-03-23 22:55:16,044 - nurturejoy - INFO - Logout attempt for user: kelly@gmail.com
+2026-03-23 23:17:32,645 - nurturejoy - INFO - Login attempt for user: lena@gmail.com
+2026-03-23 23:18:03,586 - nurturejoy - INFO - Mood entry recorded for user_id: 3
+2026-03-23 23:18:24,202 - nurturejoy - INFO - Chat history request received for user, lena@gmail.com.
+2026-03-23 23:18:25,977 - nurturejoy - INFO - Chat history request received for user, lena@gmail.com.
+2026-03-23 23:18:32,762 - nurturejoy - INFO - End session request received for user: lena@gmail.com
+2026-03-23 23:18:40,197 - nurturejoy - INFO - Logout attempt for user: lena@gmail.com
