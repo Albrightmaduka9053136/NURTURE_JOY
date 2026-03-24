@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { apiUrl } from "../utils/api";
 import "../utils/css/index.css";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +20,7 @@ const SessionHistory = () => {
 
       try {
         const res = await fetch(
-          "http://127.0.0.1:5000/api/chat/sessions",
+          apiUrl("/api/chat/sessions"),
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -48,7 +49,7 @@ const SessionHistory = () => {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:5000/api/chat/session/${session.id}/history`,
+        apiUrl(`/api/chat/session/${session.id}/history`),
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -81,7 +82,7 @@ const SessionHistory = () => {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:5000/api/chat/session/${sessionId}`,
+        apiUrl(`/api/chat/session/${sessionId}`),
         {
           method: "DELETE",
           headers: {

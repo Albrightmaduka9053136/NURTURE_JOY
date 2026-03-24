@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { apiUrl } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import "../utils/css/index.css";
 import {ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, LineChart, Line } from "recharts";
@@ -31,7 +32,7 @@ useEffect(() => {
 
     try {
       // 1️⃣ Validate user
-      const userRes = await fetch("http://127.0.0.1:5000/api/auth/me", {
+      const userRes = await fetch(apiUrl("/api/auth/me"), {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -47,7 +48,7 @@ useEffect(() => {
       // mood data for insights tab
       // Fetch mood history
 const moodRes = await fetch(
-  "http://127.0.0.1:5000/api/mood/history",
+  apiUrl("/api/mood/history"),
   {
     headers: { Authorization: `Bearer ${token}` },
   }
@@ -74,7 +75,7 @@ if (moodRes.ok) {
         setSessionId(existingSession);
 
         const historyRes = await fetch(
-          `http://127.0.0.1:5000/api/chat/session/${existingSession}/history`,
+          apiUrl(`/api/chat/session/${existingSession}/history`),
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -93,7 +94,7 @@ if (moodRes.ok) {
       } else {
         // Start new session
         const sessionRes = await fetch(
-          "http://127.0.0.1:5000/api/chat/session/start",
+          apiUrl("/api/chat/session/start"),
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -137,7 +138,7 @@ if (moodRes.ok) {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:5000/api/chat/session/${sessionId}/message`,
+        apiUrl(`/api/chat/session/${sessionId}/message`),
         {
           method: "POST",
           headers: {
@@ -177,7 +178,7 @@ if (moodRes.ok) {
   const token = localStorage.getItem("token");
 
   const res = await fetch(
-    `http://127.0.0.1:5000/api/chat/session/${sessionId}/intent`,
+    apiUrl(`/api/chat/session/${sessionId}/intent`),
     {
       method: "POST",
       headers: {
@@ -209,7 +210,7 @@ const handleEndSession = async () => {
 
   try {
     const res = await fetch(
-      `http://127.0.0.1:5000/api/chat/session/${sessionId}/sessionend`,
+      apiUrl(`/api/chat/session/${sessionId}/sessionend`),
       {
         method: "POST",
         headers: {
@@ -242,7 +243,7 @@ const startNewSession = async () => {
   const token = localStorage.getItem("token");
 
   const res = await fetch(
-    "http://127.0.0.1:5000/api/chat/session/start",
+    apiUrl("/api/chat/session/start"),
     {
       headers: { Authorization: `Bearer ${token}` },
     }
@@ -266,7 +267,7 @@ const handleSaveMood = async () => {
 
   try {
     const res = await fetch(
-      "http://127.0.0.1:5000/api/mood/track",
+      apiUrl("/api/mood/track"),
       {
         method: "POST",
         headers: {
@@ -312,7 +313,7 @@ const handleSaveMood = async () => {
 
     if (sessionId) {
       await fetch(
-        `http://127.0.0.1:5000/api/chat/session/${sessionId}/sessionend`,
+        apiUrl(`/api/chat/session/${sessionId}/sessionend`),
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
@@ -320,7 +321,7 @@ const handleSaveMood = async () => {
       );
     }
 
-    await fetch("http://127.0.0.1:5000/api/auth/logout", {
+    await fetch(apiUrl("/api/auth/logout"), {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
     });

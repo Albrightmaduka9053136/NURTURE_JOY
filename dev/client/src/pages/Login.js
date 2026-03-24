@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { apiUrl } from "../utils/api";
 import { useNavigate, Link } from "react-router-dom";
 import "../utils/css/index.css";
  
@@ -21,7 +22,7 @@ const Login = () => {
     e.preventDefault();
  
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+      const response = await fetch(apiUrl("/api/auth/login"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

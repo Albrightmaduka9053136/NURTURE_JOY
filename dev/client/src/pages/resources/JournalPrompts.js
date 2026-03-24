@@ -1,6 +1,7 @@
 // 
 
 import React, { useEffect, useState } from "react";
+import { apiUrl } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 import "../../utils/css/index.css";
 
@@ -27,7 +28,7 @@ const Journal = () => {
   }, [navigate]);
 
   const fetchPrompt = async () => {
-    const res = await fetch("http://127.0.0.1:5000/api/journal/prompt");
+    const res = await fetch(apiUrl("/api/journal/prompt"));
     const data = await res.json();
     if (res.ok) setPrompt(data.prompt);
   };
@@ -35,7 +36,7 @@ const Journal = () => {
   const fetchEntries = async () => {
     const token = localStorage.getItem("token");
 
-    const res = await fetch("http://127.0.0.1:5000/api/journal", {
+    const res = await fetch(apiUrl("/api/journal"), {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -52,7 +53,7 @@ const Journal = () => {
     const token = localStorage.getItem("token");
     setLoading(true);
 
-    const res = await fetch("http://127.0.0.1:5000/api/journal", {
+    const res = await fetch(apiUrl("/api/journal"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
