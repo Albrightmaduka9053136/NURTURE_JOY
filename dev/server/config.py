@@ -4,13 +4,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    # SQLALCHEMY_DATABASE_URI = (
-    #     f"postgresql://{os.getenv('DB_USERNAME')}:"
-    #     f"{os.getenv('DB_PASSWORD')}@"
-    #     f"{os.getenv('DB_HOST')}:"
-    #     f"{os.getenv('DB_PORT')}/"
-    #     f"{os.getenv('DB_NAME')}"
-    # )
-
-    SQLALCHEMY_DATABASE_URI = "postgresql://neondb_owner:npg_mTgL3UexS5aM@ep-young-pine-ai18kf66-pooler.c-4.us-east-1.aws.neon.tech/nuturejoy?sslmode=require&channel_binding=require"
+    SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-me")
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    if not SQLALCHEMY_DATABASE_URI:
+        raise ValueError("DATABASE_URL is not set. Add your Neon connection string to the dev/.env file.")
