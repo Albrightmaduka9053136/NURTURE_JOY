@@ -44,7 +44,8 @@ const Login = () => {
         alert(data.error);
   }
     } catch (error) {
-      console.error(error);
+      console.error("Login request failed:", error);
+      alert("Login request failed. Check browser console or backend logs.");
     }
   };
  
