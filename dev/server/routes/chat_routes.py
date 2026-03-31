@@ -3,6 +3,7 @@ import re
 import json
 import random
 import joblib
+import logging
 
 # Optional OpenAI client for (a) KB-grounded emotion selection and (b) KB response paraphrasing
 try:
@@ -21,9 +22,7 @@ from database.db import db
 from models.chat_session import ChatSession
 from models.chat_message import ChatMessage
 from routes.auth_routes import get_user_from_token
-from utils.logger import setup_logger
 
-logger = setup_logger()
 
 # RAG retriever (TF-IDF over curated KB snippets)
 try:
@@ -32,6 +31,7 @@ except Exception:
     retrieve_top_k = None  # RAG is optional
 
 chat_bp = Blueprint("chat", __name__)
+logger = logging.getLogger("nurturejoy.chat")
 
 # ============================================================
 #  PATHS (robust)
@@ -101,7 +101,7 @@ RESOURCE_LINKS = {
 #  - If retrieval is weak/empty: fall back to TF-IDF + rule/template engine.
 # ============================================================
 
-RAG_MIN_SCORE = 0.18  # tune: higher -> fewer KB hits, more fallback
+RAG_MIN_SCORE = float(os.environ.get("RAG_MIN_SCORE", "0.18"))  # tune: higher -> fewer KB hits, more fallback
 LLM_MIN_CONFIDENCE = float(os.environ.get("LLM_MIN_CONFIDENCE", "0.55"))
 LLM_MAX_KB_CANDIDATES = int(os.environ.get("LLM_MAX_KB_CANDIDATES", "5"))
 LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-5-mini")
@@ -661,6 +661,7 @@ def chat_greeting():
     CHAT_STATE[user.id] = {"turns": 0, "recent_templates": []}
 
     greeting = f"Welcome my dear {user.username}. How are you feeling today?"
+    logger.info("Chat response prepared | user_id=%s | emotion=%s | bucket=%s", user.id if user else None, emotion if "emotion" in locals() else None, bucket if "bucket" in locals() else None)
     return jsonify({
         "type": "greeting",
         "response": greeting,
@@ -690,6 +691,7 @@ def chat():
 
     # Extract features (even if text empty for intent)
     feats = extract_features(text) if text else {"topic": None, "symptom": None, "support": None, "intensity": "medium"}
+    logger.info("Chat request received | user_id=%s | text_preview=%s | features=%s", user.id if user else None, _shorten(text, 80), feats)
 
     # ------------------------------------------------------------
     # INTENT MODE (continuous dialogue)
@@ -826,6 +828,8 @@ def start_session():
 
     db.session.add(greeting_msg)
     db.session.commit()
+    logger.info("Chat session started | user_id=%s | session_id=%s", user.id, session_id)
+    logger.info("Chat greeting sent | user_id=%s | session_id=%s | text_preview=%s", user.id, session_id, _shorten(greeting_msg.text, 80))
 
     return jsonify({
         "session_id": session_id,
@@ -850,9 +854,9 @@ def send_message(session_id):
     if session.ended:
         return jsonify({"error": "Session ended"}), 400
 
-    logger.info("Chat request received from user.")
     data = request.get_json() or {}
     text = str(data.get("text", "")).strip()
+    logger.info("Chat message received | user_id=%s | session_id=%s | text_preview=%s", user.id, session_id, _shorten(text, 80))
 
     if not text:
         return jsonify({"error": "Missing text"}), 400
@@ -884,6 +888,7 @@ def send_message(session_id):
 
         db.session.add(bot_msg)
         db.session.commit()
+        logger.info("Chat safety response sent | user_id=%s | session_id=%s | type=%s", user.id, session_id, bot_msg.type)
         return jsonify({"message": bot_msg.to_dict()}), 200
     
     
@@ -905,6 +910,7 @@ def send_message(session_id):
 
         db.session.add(bot_msg)
         db.session.commit()
+        logger.info("Chat closing suggestion sent | user_id=%s | session_id=%s | type=%s", user.id, session_id, bot_msg.type)
         return jsonify({"message": bot_msg.to_dict()}), 200
 
     # === RAG-FIRST (classification-by-retrieval). TF-IDF templates are fallback. ===
@@ -941,6 +947,7 @@ def send_message(session_id):
 
     db.session.add(bot_msg)
     db.session.commit()
+    logger.info("Chat response sent | user_id=%s | session_id=%s | emotion=%s | link=%s", user.id, session_id, emotion, kb_link)
 
     return jsonify({"message": bot_msg.to_dict()}), 200
 
@@ -960,8 +967,7 @@ def get_history(session_id):
     messages = ChatMessage.query.filter_by(session_id=session_id)\
         .order_by(ChatMessage.timestamp.asc())\
         .all()
-    logger.info(f"Chat history request received for user, {user.email}.")
-    
+
     return jsonify({
         "session_id": session_id,
         "turns": session.turns,
@@ -990,6 +996,7 @@ def run_intent(session_id):
 
     data = request.get_json() or {}
     intent_id = str(data.get("intent", "")).strip()
+    logger.info("Chat intent received | user_id=%s | session_id=%s | intent=%s", user.id, session_id, intent_id)
 
     if not intent_id:
         return jsonify({"error": "Missing intent"}), 400
@@ -1014,6 +1021,7 @@ def run_intent(session_id):
 
         db.session.add(bot_msg)
         db.session.commit()
+        logger.info("Chat session ended via intent | user_id=%s | session_id=%s", user.id, session_id)
 
         return jsonify({"message": bot_msg.to_dict()}), 200
 
@@ -1056,6 +1064,7 @@ def run_intent(session_id):
     session.turns += 1
 
     db.session.commit()
+    logger.info("Chat intent response sent | user_id=%s | session_id=%s | intent=%s", user.id, session_id, intent_id)
 
     return jsonify({
         "message": bot_msg.to_dict()
@@ -1085,11 +1094,11 @@ def end_session(session_id):
     if session.ended:
         return jsonify({"error": "Session already ended"}), 400
 
-    logger.info(f"End session request received for user: {user.email}")
     session.ended = True
     session.ended_at = datetime.utcnow()
 
     db.session.commit()
+    logger.info("Chat session ended via endpoint | user_id=%s | session_id=%s", user.id, session_id)
 
     return jsonify({
         "status": "ended",

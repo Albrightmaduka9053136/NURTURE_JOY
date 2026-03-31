@@ -1,3 +1,4 @@
+import logging
 import secrets
 
 from flask import Blueprint, request, jsonify
@@ -6,10 +7,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database.db import db
 from models.user_model import User
 
-from utils.logger import setup_logger
-logger = setup_logger()
-
 auth_bp = Blueprint("auth", __name__)
+logger = logging.getLogger(__name__)
 
 # ===============================
 # REGISTER
@@ -35,6 +34,7 @@ def register():
     ).first()
 
     if existing_user:
+        logger.info("Registration blocked for existing user email=%s username=%s", email, username)
         return jsonify({"error": "User already exists"}), 409
 
     # Hash password
@@ -50,6 +50,7 @@ def register():
 
     db.session.add(new_user)
     db.session.commit()
+    logger.info("User registered successfully | user_id=%s email=%s", new_user.id, email)
 
     return jsonify({
         "message": "User registered successfully",
@@ -86,8 +87,6 @@ def login():
 
     email = data.get("email")
     password = data.get("password")
-    
-    
 
     if not email or not password:
         return jsonify({"error": "Missing email or password"}), 400
@@ -95,17 +94,18 @@ def login():
     user = User.query.filter_by(email=email).first()
 
     if not user:
+        logger.info("Login failed, user not found | email=%s", email)
         return jsonify({"error": "User not found"}), 404
 
     if not check_password_hash(user.password, password):
+        logger.info("Login failed, invalid credentials | email=%s", email)
         return jsonify({"error": "Invalid credentials"}), 401
 
-    logger.info(f"Login attempt for user: {email}")
-    
     # Generate new token
     token = secrets.token_hex(32)
     user.api_token = token
     db.session.commit()
+    logger.info("Login successful | user_id=%s email=%s", user.id, email)
 
     return jsonify({
         "message": "Login successful",
@@ -124,10 +124,10 @@ def logout():
     if not user:
         return jsonify({"error": "Unauthorized"}), 401
 
-    logger.info(f"Logout attempt for user: {user.email}")
-    
     user.api_token = None
     db.session.commit()
+    logger.info("Logout successful | user_id=%s", user.id)
+    #logger.info("User registered successfully | user_id=%s email=%s", new_user.id, email)
 
     return jsonify({
         "message": "Logged out successfully"
@@ -187,6 +187,7 @@ def get_user_by_id(user_id):
     user = db.session.get(User, user_id)
 
     if not user:
+        logger.info("Login failed, user not found | email=%s", email)
         return jsonify({"error": "User not found"}), 404
 
     return jsonify({
