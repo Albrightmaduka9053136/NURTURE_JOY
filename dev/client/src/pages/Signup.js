@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { apiUrl } from "../utils/api";
 import { useNavigate, Link } from "react-router-dom";
-import "../utils/css/index.css";
+import "../utils/css/signup.css";
  
 const Register = () => {
   const navigate = useNavigate();
@@ -9,9 +9,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: "",
-    age: "",
-    trimester: ""
+    password: ""
   });
  
   const [error, setError] = useState("");
@@ -56,28 +54,24 @@ const Register = () => {
  
   return (
   <div className="signup-wrapper">
- 
     <div className="signup-card">
  
       {/* LEFT SIDE */}
       <div className="signup-left">
         <div className="signup-nav">
-          <div className="logo">Nurture Joy</div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-          </ul>
+          {/* <div className="logo"><Link to="/">💕Nurture Joy</Link></div> */}
         </div>
  
         <div className="signup-form-section">
-          <h2>Sign up</h2>
+          <h2>Join  <Link to="/">Nurture Joy 💕</Link></h2>
  
           <form onSubmit={handleSubmit}>
+            
             <input
               type="text"
               name="username"
               placeholder="Full Name"
               onChange={handleChange}
-              required
             />
  
             <input
@@ -107,23 +101,7 @@ const Register = () => {
             </div>
             {error && <p className="form-error">{error}</p>}
  
-            <div className="extra-row">
-              <input
-                type="number"
-                name="age"
-                placeholder="Age"
-                onChange={handleChange}
-              />
- 
-              <input
-                type="number"
-                name="trimester"
-                placeholder="Trimester (1-3)"
-                onChange={handleChange}
-              />
-            </div>
- 
-            <button type="submit">Create Account</button>
+            <button type="submit">Create Your Safe Space</button>
           </form>
  
           <p className="signin-link">
@@ -133,10 +111,15 @@ const Register = () => {
       </div>
  
       {/* RIGHT SIDE */}
-      <div className="signup-right"></div>
+      <div className="signup-right">
+
+        <div className="overlay"></div>
+         
+        </div>
+      </div>
  
     </div>
-  </div>
+ 
 );
  
 };
