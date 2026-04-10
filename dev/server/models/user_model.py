@@ -23,11 +23,6 @@ class User(db.Model):
         nullable=False
     )
 
-    age = db.Column(db.Integer)
-
-    trimester = db.Column(db.Integer)
-
-
     api_token = db.Column(db.String(128), nullable=True)
 
     created_at = db.Column(
@@ -47,8 +42,6 @@ class User(db.Model):
             "id": self.id,
             "username": self.username,
             "email": self.email,
-            "age": self.age,
-            "trimester": self.trimester,
             "created_at": self.created_at
         }
 

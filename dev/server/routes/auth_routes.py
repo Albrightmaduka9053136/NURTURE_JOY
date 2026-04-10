@@ -21,8 +21,6 @@ def register():
     username = data.get("username")
     email = data.get("email")
     password = data.get("password")
-    age = data.get("age")
-    trimester = data.get("trimester")
 
     # Basic validation
     if not username or not email or not password:
@@ -43,9 +41,7 @@ def register():
     new_user = User(
         username=username,
         email=email,
-        password=hashed_password,
-        age=age,
-        trimester=trimester
+        password=hashed_password
     )
 
     db.session.add(new_user)
@@ -185,9 +181,10 @@ def get_all_users():
 def get_user_by_id(user_id):
 
     user = db.session.get(User, user_id)
+    # email = data.get("email")
 
     if not user:
-        logger.info("Login failed, user not found | email=%s", email)
+        logger.info("Login failed, user not found | email=%s", user.email)
         return jsonify({"error": "User not found"}), 404
 
     return jsonify({
