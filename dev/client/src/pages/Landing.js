@@ -100,14 +100,7 @@ const LandingPage = () => {
         knowledgeable, and caring support — anytime, anywhere.
       </p>
     </div>
- 
- <div className="foundation-card">
-      <h3>Vision</h3>
-      <p>
-        Throughout pregnancy, every mother receives individualized,
-        knowledgeable, and caring support — anytime, anywhere.
-      </p>
-    </div>
+
     
     <div className="foundation-card">
       <h3>Mission</h3>
