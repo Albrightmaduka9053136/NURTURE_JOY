@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../utils/css/index.css";
+import projectLogo from "../utils/assets/project-logo.png";
  
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -24,7 +25,7 @@ const LandingPage = () => {
  
       {/* NAVBAR */}
       <nav className={`landing-navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="logo">NURTURE JOY</div>
+        <div className="logo"><img src={projectLogo} alt="Project Logo" /></div>
         <ul>
           <li><a href="#about">About</a></li>
           <li><Link to="/login" className="nav-link" style={{color: "white"}}>Login</Link></li>
