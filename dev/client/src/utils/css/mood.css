@@ -1,0 +1,191 @@
+/* =================== mood selector =================== */
+.mood-card {
+  background: white;
+  border-radius: 16px;
+  /* padding: 20px; */
+  width: 100%;
+  max-width: 380px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.mood-card-header{
+  background-color: #8DD5F5;
+  padding: 5px 10px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.mood-card-body{
+  padding: 25px;
+}
+
+/* HEADINGS */
+h3 {
+  margin-bottom: 10px;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* MOODS */
+.mood-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  
+}
+
+.mood-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 40px;
+}
+
+.mood-item:hover {
+  transform: scale(1.1);
+  box-shadow: #ff6b8168 0px 4px 12px;
+}
+
+.mood-item.selected {
+  transform: scale(1.2);
+  background-color: #ff6b813e;
+  box-shadow: #a9939668 0px 4px 12px;
+  padding: 2px;
+  border-radius: 40px;
+}
+
+.emoji {
+  font-size: 24px;
+}
+
+.label {
+  font-size: 12px;
+}
+
+/* SLIDER */
+.intensity-label {
+  margin-top: 25px;
+  display: block;
+  font-size: 16px;
+}
+
+.slider {
+  width: 100%;
+  margin: 10px 0;
+
+  appearance: none;
+  height: 6px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #ff6b81, #8DD5F5);
+}
+
+/* THUMB */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #1a535cdd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* SCALE NUMBERS */
+.scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+/* TEXTAREA */
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  resize: none;
+  margin: 15px 0px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.primary {
+  background: linear-gradient(90deg, #ff6b81, #ff9a9e);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid #8DD5F5;
+  color: #1a535c;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* HOVER */
+button:hover {
+  opacity: 0.9;
+}
+
+.response-message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.response-message.success {
+  color: green;
+}
+.response-message.error {
+  color: red;
+}
+
+
+
+/* =================== trend =================== */
+
+.trend-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+h3 {
+  margin-bottom: 10px;
+}
+
+/* LEGEND */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.legend-box {
+  width: 12px;
+  height: 12px;
+  background: #8DD5F5;
+  border-radius: 3px;
+}
+
+
