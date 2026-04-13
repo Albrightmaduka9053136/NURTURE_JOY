@@ -1,6 +1,4 @@
-.metrics-container {
-  margin-top: 20px;
-}
+
 
 /* TITLE */
 .metrics-container h3 {
@@ -11,36 +9,35 @@
 .metrics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 5px;
 }
 
 /* CARD BASE */
-.card {
+.metrics-grid .card {
   border-radius: 14px;
   padding: 15px;
   color: #333;
-
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
-.card:hover {
+.metrics-grid .card:hover {
   transform: translateY(-3px);
 }
 
 /* CONTENT */
-.card-content {
+.metrics-grid .card-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card p {
+.metrics-grid .card p {
   font-size: 13px;
   margin: 0;
 }
 
-.card h2 {
+.metrics-grid .card h2 {
   margin: 5px 0 0;
 }
 
@@ -74,4 +71,104 @@
 .card.likes {
   background: linear-gradient(135deg, #e0c3fc, #c084fc);
   color: white;
+}
+
+
+/* =============== CARE PLAN CARD =============== */
+/* CARD BASE */
+.card {
+  border-radius: 14px;
+  padding: 15px;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+.care-card {
+  background: #e98b99;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 14px;
+  padding: 15px;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.care-card:hover {
+  transform: translateY(-3px);
+}
+
+/* TITLE */
+.care-card h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.care-card span {
+  color: #040404;
+}
+
+/* TASK LIST */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* TASK ITEM */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* TEXT */
+.task-text {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.task-text.done {
+  color: #888;
+  text-decoration: line-through;
+}
+
+/* CHECKBOX CUSTOM */
+.checkbox-container {
+  position: relative;
+  display: inline-block;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* CHECKED STATE */
+.checkbox-container input:checked + .checkmark {
+  background: #8DD5F5;
+  border: none;
+}
+
+/* RIGHT ICON */
+.task-icon {
+  margin-left: 10px;
+  font-size: 16px;
 }
