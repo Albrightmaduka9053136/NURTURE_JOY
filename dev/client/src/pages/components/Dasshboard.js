@@ -10,6 +10,7 @@ import ChatWidget from "../chatbot/ChatWidget";
 import WellBeingTip from "../dash-utils/TodayTip";
 
 import chatCardImg from "../../utils/assets/chatbot-card.jpg";
+import CarePlanCard from "../dash-utils/CarePlan";
 
 const Dashboard = () => {
   
@@ -274,12 +275,11 @@ const Dashboard = () => {
           <MoodTracker/> 
             </div>
 <div className="right-inside">
+  {/* Metrics */}
+          <MetricsCards/>
+
     {/* Mood Trend */}
               <MoodTrend/>
-
-          {/* Metrics */}
-          
-          <MetricsCards/>
     </div>
              
 
@@ -324,15 +324,8 @@ const Dashboard = () => {
           <WellBeingTip/>
 
           {/* Care Plan */}
-          <div className="card">
-            <h3>Your Care Plan</h3>
-            <ul className="tasks">
-              <li><input type="checkbox" /> 15 min stretch</li>
-              <li><input type="checkbox" /> Drink water</li>
-              <li><input type="checkbox" /> Read article</li>
-              <li><input type="checkbox" /> Call a friend</li>
-            </ul>
-          </div>
+         <CarePlanCard/>
+          
 
           
 
