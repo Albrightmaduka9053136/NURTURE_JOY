@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../utils/css/care-metrics.css";
+import { apiUrl } from "../../utils/api";
 
 const MetricsCards = () => {
+  const [moodStreak, setMoodStreak] = useState(0);
+  const [journalStreak, setJournalStreak] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchStreaks();
+  }, []);
+
+  const fetchStreaks = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      const res = await fetch(apiUrl("/api/metrics/streaks"), {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error();
+
+      setMoodStreak(data.moodStreak);
+      setJournalStreak(data.journalStreak);
+
+    } catch (err) {
+      console.error("Failed to fetch streaks", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="metrics-container">
-
-      {/* <h3>Summarized Metrics Flashcards</h3> */}
 
       <div className="metrics-grid">
 
@@ -14,41 +45,22 @@ const MetricsCards = () => {
           <div className="card-content">
             <div>
               <p>Mood Streak:</p>
-              <h2>5 Days</h2>
+              <h2>
+                {loading ? "..." : `🔥 ${moodStreak} Days`}
+              </h2>
             </div>
-            
           </div>
         </div>
 
-        {/* Journal Posts */}
+        {/* Journal Streak */}
         <div className="card journal">
           <div className="card-content">
             <div>
-              <p>Journal Posts:</p>
-              <h2>10 entries</h2>
+              <p>Journal Streak:</p>
+              <h2>
+                {loading ? "..." : `🔥 ${journalStreak} Days`}
+              </h2>
             </div>
-          </div>
-        </div>
-
-        {/* Total Logs */}
-        <div className="card logs">
-          <div className="card-content">
-            <div>
-              <p>Total Logs:</p>
-              <h2>32</h2>
-            </div>
-            
-          </div>
-        </div>
-
-        {/* Community Likes */}
-        <div className="card likes">
-          <div className="card-content">
-            <div>
-              <p>Community Likes:</p>
-              <h2>18</h2>
-            </div>
-           
           </div>
         </div>
 
