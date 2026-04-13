@@ -14,7 +14,7 @@ import Grounding54321 from "./pages/resources/Grounding54321";
 import CareProviders from "./pages/resources/CareProviders";
 import Journal from "./pages/resources/JournalPrompts";
 import UrgentSupport from "./pages/resources/UrgentSupport";
-import Resources from "./pages/Resources";
+import Resources from "./pages/components/Resources";
 import UserProfile from "./pages/components/UserProfile";
 
 
