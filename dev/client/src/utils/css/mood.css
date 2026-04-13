@@ -138,6 +138,12 @@ textarea {
   padding: 10px 15px;
   border-radius: 20px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary:hover {
+  background: #8DD5F5;
+  color: white;
 }
 
 /* HOVER */
