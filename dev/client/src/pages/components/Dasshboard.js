@@ -66,52 +66,75 @@ const Dashboard = () => {
   // ==========================
     // 💬 Send Message
     // ==========================
-    const handleSend = async () => {
-      if (!message.trim() || !sessionId) return;
-  
-      const token = localStorage.getItem("token");
-      const userText = message.trim();
-  
-      // Add user message instantly
+  const handleSend = async () => {
+  if (!message.trim()) return;
+
+  const token = localStorage.getItem("token");
+  const userText = message.trim();
+
+  // Add user message instantly
+  setChat((prev) => [
+    ...prev,
+    { role: "user", text: userText }
+  ]);
+
+  setMessage("");
+
+  try {
+    let currentSessionId = sessionId;
+
+    // 🟢 START SESSION ONLY IF NONE EXISTS
+    if (!currentSessionId) {
+      const startRes = await fetch(
+        apiUrl("/api/chat/session/start"),
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      const startData = await startRes.json();
+
+      if (!startRes.ok) throw new Error("Failed to start session");
+
+      currentSessionId = startData.session_id;
+      setSessionId(currentSessionId);
+
+      // Optional: show welcome message
+      setChat((prev) => [...prev, startData.message]);
+    }
+
+    // 🟢 SEND MESSAGE AFTER SESSION EXISTS
+    const res = await fetch(
+      apiUrl(`/api/chat/session/${currentSessionId}/message`),
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ text: userText }),
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
       setChat((prev) => [
         ...prev,
-        { role: "user", text: userText }
+        { role: "assistant", text: data.error || "Error occurred" }
       ]);
-  
-      setMessage("");
-  
-      try {
-        const res = await fetch(
-          apiUrl(`/api/chat/session/${sessionId}/message`),
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ text: userText }),
-          }
-        );
-  
-        const data = await res.json();
-  
-        if (!res.ok) {
-          setChat((prev) => [
-            ...prev,
-            { role: "assistant", text: data.error || "Error occurred" }
-          ]);
-          return;
-        }
-  
-        setChat((prev) => [...prev, data.message]);
-  
-      } catch (err) {
-        setChat((prev) => [
-          ...prev,
-          { role: "assistant", text: "Backend not reachable" }
-        ]);
-      }
-    };
+      return;
+    }
+
+    setChat((prev) => [...prev, data.message]);
+
+  } catch (err) {
+    setChat((prev) => [
+      ...prev,
+      { role: "assistant", text: "Backend not reachable" }
+    ]);
+  }
+};
   
     // ==========================
     // 🔘 Handle Quick Reply
@@ -214,9 +237,7 @@ const Dashboard = () => {
       {/* Welcome */}
      
      <div>
-<h1 style={{ fontSize: "26px", marginBottom: "5px", marginLeft:"20px" }}>
-  Welcome Back, {user?.username}
-</h1>
+
        
 
      </div>
@@ -230,7 +251,7 @@ const Dashboard = () => {
           <div className="progress-card" style={{ marginBottom: "10px" }}>
 
   <div className="progress-header">
-    <h3>Your Nurture Journey Progress</h3>
+    <h2 style={{ marginBottom: "10px" }}> Welcome Back, {user?.username}</h2>
     <button className="cta">Call-to-actions →</button>
   </div>
 
