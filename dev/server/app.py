@@ -13,6 +13,7 @@ from routes.auth_routes import auth_bp
 from routes.chat_routes import chat_bp
 from routes.journal_routes import journal_bp
 from routes.mood_routes import mood_bp
+from routes.metrics_routes import metrics_bp
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -44,6 +45,7 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(chat_bp)
 app.register_blueprint(mood_bp)
 app.register_blueprint(journal_bp)
+app.register_blueprint(metrics_bp)
 
 with app.app_context():
     db.create_all()
