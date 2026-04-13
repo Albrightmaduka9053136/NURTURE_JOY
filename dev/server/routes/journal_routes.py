@@ -35,6 +35,8 @@ def save_journal():
 
     data = request.get_json()
     prompt = data.get("prompt")
+    label = data.get("label")
+    title = data.get("title")
     content = data.get("content")
 
     if not content:
@@ -43,6 +45,8 @@ def save_journal():
     entry = JournalEntry(
         user_id=user.id,
         prompt=prompt,
+        label=label,
+        title= title,
         content=content
     )
 
