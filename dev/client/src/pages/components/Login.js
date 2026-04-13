@@ -60,7 +60,7 @@ const Login = () => {
 >
   {/* TOP TEXT BLOCK */}
   <div className="top-overlay">
-    <h1>Welcome Back to the Nurture Joy Community.</h1>
+    <h1>Welcome Back</h1>
     <p>
       Continue your personalized, safe, and emotional support throughout
       your pregnancy journey.
