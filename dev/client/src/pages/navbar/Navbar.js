@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../utils/css/navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../../utils/api";
 import {  } from "react-router-dom";
 import projectLogo from "../../utils/assets/project-logo.png";
