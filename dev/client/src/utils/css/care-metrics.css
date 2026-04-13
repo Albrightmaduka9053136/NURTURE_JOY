@@ -52,14 +52,14 @@
 /* INDIVIDUAL CARD COLORS */
 
 /* Mood Streak (soft orange like image) */
-.card.mood {
+.card.mood, .card.journal {
   background: linear-gradient(135deg, #fcd5a6, #f8b26a);
 }
 
 /* Journal (peach tone) */
-.card.journal {
+/* .card.journal {
   background: linear-gradient(135deg, #f8c9a6, #f4a261);
-}
+} */
 
 /* Logs (teal - YOUR NEW COLOR) */
 .card.logs {
