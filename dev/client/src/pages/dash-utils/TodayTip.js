@@ -3,7 +3,7 @@ import "../../utils/css/today-tip.css";
 
 const WellBeingTip = () => {
   return (
-    <div className="tip-card card" >
+    <div className="tip-card" style={{marginTop:"10px"}} >
 
       <h3>Today's Tip</h3>
 
