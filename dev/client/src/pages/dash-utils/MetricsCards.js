@@ -5,7 +5,7 @@ const MetricsCards = () => {
   return (
     <div className="metrics-container">
 
-      <h3>Summarized Metrics Flashcards</h3>
+      {/* <h3>Summarized Metrics Flashcards</h3> */}
 
       <div className="metrics-grid">
 
@@ -25,7 +25,7 @@ const MetricsCards = () => {
           <div className="card-content">
             <div>
               <p>Journal Posts:</p>
-              <h2>10</h2>
+              <h2>10 entries</h2>
             </div>
           </div>
         </div>
