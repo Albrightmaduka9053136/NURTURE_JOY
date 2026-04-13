@@ -135,7 +135,7 @@ const handleSaveMood = async () => {
           {savingMood ? "Saving..." : "Log Mood"}
         </button>
         
-        <button className="secondary">Add Notes</button>
+        <button className="secondary" onClick={() => navigate("/resources/journal")}>Add Notes</button>
       </div>
 < p className={`response-message ${responseMessage.includes("successfully") ? "success" : "error"}`}>
           {responseMessage}
