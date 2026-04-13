@@ -1,19 +1,48 @@
-// 
-
 import React, { useEffect, useState } from "react";
+import "../../utils/css/journal.css";
 import { apiUrl } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
-import "../../utils/css/index.css";
+import Navbar from "../navbar/Navbar";
+
+const labels = ["Work", "Motivation", "Mindfulness", "Creativity", "Gratitude", "Health", "Personal", "Reflection"];
 
 const Journal = () => {
   const navigate = useNavigate();
-
-  const [prompt, setPrompt] = useState("");
   const [content, setContent] = useState("");
-  const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedLabels, setSelectedLabels] = useState([]);
+  const [entries, setEntries] = useState([]);
+  const [prompt, setPrompt] = useState("")
+  const [title, setTitle] = useState("");
+  const [expandedEntryId, setExpandedEntryId] = useState(null);
 
-  // ==========================
+
+  const toggleLabel = (label) => {
+    setSelectedLabels((prev) =>
+      prev.includes(label)
+        ? prev.filter((l) => l !== label)
+        : [...prev, label]
+    );
+  };
+
+const saveEntry = () => {
+  if (!content) return;
+
+  const newEntry = {
+    id: Date.now(),
+    date: new Date().getDate(),
+    label: selectedLabels[0] || "Personal",
+  title: title,
+    content: content
+  };
+
+  setEntries([newEntry, ...entries]);
+  setContent("");
+  setTitle("");
+  setSelectedLabels([]);
+};
+
+    // ==========================
   // 🔐 Fetch Prompt + Journals
   // ==========================
   useEffect(() => {
@@ -28,21 +57,38 @@ const Journal = () => {
   }, [navigate]);
 
   const fetchPrompt = async () => {
+  try {
     const res = await fetch(apiUrl("/api/journal/prompt"));
-    const data = await res.json();
-    if (res.ok) setPrompt(data.prompt);
-  };
 
-  const fetchEntries = async () => {
+    if (!res.ok) throw new Error("Failed to fetch prompt");
+
+    const data = await res.json();
+    setPrompt(data.prompt);
+
+  } catch (error) {
+    console.error("Prompt error:", error);
+    setPrompt("How are you feeling today?");
+  }
+};
+
+const fetchEntries = async () => {
+  try {
     const token = localStorage.getItem("token");
 
     const res = await fetch(apiUrl("/api/journal"), {
       headers: { Authorization: `Bearer ${token}` },
     });
 
+    if (!res.ok) throw new Error("Failed to fetch entries");
+
     const data = await res.json();
-    if (res.ok) setEntries(data.entries);
-  };
+    setEntries(data.entries || []);
+
+  } catch (error) {
+    console.error("Entries error:", error);
+    setEntries([]);
+  }
+};
 
   // ==========================
   // 💾 Save Journal
@@ -60,8 +106,10 @@ const Journal = () => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        prompt: prompt,
-        content: content,
+      prompt: prompt,
+      title: title,
+      label: selectedLabels[0] || "Personal",
+      content: content,
       }),
     });
 
@@ -69,6 +117,7 @@ const Journal = () => {
 
     if (res.ok) {
       setContent("");
+      setTitle("");
       fetchEntries();
       fetchPrompt(); // refresh prompt
     }
@@ -76,73 +125,188 @@ const Journal = () => {
     setLoading(false);
   };
 
- return (
-  <div className="journal-page">
 
-    <div className="journal-header">
-      <h1>Journal</h1>
-      <button onClick={() => navigate("/dashboard")} className="back-btn">
-        Go to Dashboard
-      </button>
+
+  // ========== show journal details (for now just alert) ==========
+  const toggleEntry = (id) => {
+  setExpandedEntryId((prev) => (prev === id ? null : id));
+};
+
+
+    // ========================== most used lables (for stats) ==========================
+    const getMostUsedLabel = () => {
+  if (!entries.length) return "None";
+
+  const count = {};
+
+  entries.forEach((entry) => {
+    const label = entry.label || "Personal";
+    count[label] = (count[label] || 0) + 1;
+  });
+
+  // find max
+  let maxLabel = "None";
+  let maxCount = 0;
+
+  for (const label in count) {
+    if (count[label] > maxCount) {
+      maxCount = count[label];
+      maxLabel = label;
+    }
+  }
+
+  return maxLabel;
+};
+
+  return (
+    <div>
+      {/* navbar */}
+      <Navbar />
+     <div className="journal-page">
+       {/* STATS */}
+   <div className="journal-header-card">
+
+  {/* LEFT SIDE */}
+  <div className="journal-header-left">
+    <h2>Your Nurture Journal</h2>
+
+    <div className="prompt-box">
+      <h4>Today's Prompt</h4>
+      <p className="prompt">{prompt}</p>
+    </div>
+  </div>
+
+  {/* RIGHT SIDE (FLASHCARDS) */}
+  <div className="journal-header-right">
+
+    <div className="flashcard">
+      
+      <h3>{entries.length}</h3><p>Total Entries</p>
     </div>
 
-    <div className="journal-layout">
+    <div className="flashcard">
+    
+      <h3>
+        {getMostUsedLabel()}
+      </h3>  <p>Most Used Label</p>
+    </div>
 
-      {/* LEFT SIDE — Today's Prompt */}
-      <div className="journal-left">
-        <div className="journal-card">
-          <h3>Today's Prompt</h3>
-          <p className="journal-prompt">{prompt}</p>
+  </div>
 
+</div>
+
+
+
+      <div className="journal-grid">
+
+        {/* LEFT: CREATE ENTRY */}
+        <div className="card">
+        <p className="journal-new-entry">New Entry</p>
+
+          {/* LABELS */}
+          <div className="labels">
+            {labels.map((label) => (
+              <span
+                key={label}
+                className={`label ${
+                  selectedLabels.includes(label) ? "active" : ""
+                }`}
+                onClick={() => toggleLabel(label)}
+                value={label}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+
+{/* title */}
+          <input
+            type="text"
+            placeholder="Subject"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="journal-title-input"
+          />
+          {/* TEXTAREA */}
           <textarea
             placeholder="Write your thoughts here..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="journal-textarea"
           />
 
-          <button
-            onClick={handleSave}
-            className="save-journal-btn"
-            disabled={loading}
-          >
-            {loading ? "Saving..." : "Save Journal"}
+          <button className="primary" onClick={handleSave}>
+             Save Journal Entry
           </button>
+
         </div>
-      </div>
 
-      {/* RIGHT SIDE — Previous Entries */}
-      <div className="journal-right" style={{  }}>
-        <h3>Previous Journals</h3>
+        {/* RIGHT: SAVED ENTRIES */}
+        <div className="entries-section">
 
-        <div className="journal-scroll">
+          <div className="entries-header">
+            <h3>Your Saved Entries</h3>
+            <input placeholder="Search..." />
+          </div>
+             <div className="journal-scroll">
 
-          {entries.length === 0 && <p>No journal entries yet.</p>}
+           {entries.length === 0 && <p>No journal entries yet.</p>}
 
-          {entries.map((entry) => (
+           {entries.map((entry) => (
             <div key={entry.id} className="journal-entry-card">
-              <div className="journal-entry-date">
-                {new Date(entry.created_at).toLocaleString()}
+              <div className="date-box">
+                <span>Date</span><h3>
+  {entry.created_at &&
+  new Date(entry.created_at).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short"
+  })}
+</h3>
+                
               </div>
 
-              {entry.prompt && (
+              <div className="entry-content">
+                  <span className={`tag ${entry.label.toLowerCase()}`}>
+                    {entry.label}
+                  </span> 
+                  
+                  {entry.prompt && (
                 <div className="journal-entry-prompt">
                   <strong>Prompt:</strong> {entry.prompt}
                 </div>
               )}
+              <p className="journal-entry-title">{entry.title}</p>
 
-              <div className="journal-entry-content">
-                {entry.content}
-              </div>
+              <p className="journal-entry-link" onClick={() => toggleEntry(entry.id)}>
+                Show Journal details
+              </p>
+
+               {/* CONDITIONAL CONTENT */}
+               <div className="journal-entry-details">
+                {expandedEntryId === entry.id && (
+    <p className="journal-entry-content">
+      {entry.content}
+    </p>
+  )}
+               </div>
+  
+                </div>
+
             </div>
           ))}
+         </div>
+
+          
 
         </div>
+
       </div>
 
+     
+
+    </div> 
     </div>
-  </div>
-);
-}
+    
+  );
+};
 
 export default Journal;
