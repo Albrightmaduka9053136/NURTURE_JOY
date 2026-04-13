@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../utils/css/chatwidget.css";
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../../utils/api";
+import Navbar from "../navbar/Navbar";
 
 const ChatHistory = () => {
   const navigate = useNavigate();
@@ -115,13 +116,50 @@ const ChatHistory = () => {
       localStorage.setItem("activeSession", sessionId);
       navigate("/dashboard");
     };
+
+
+    // =========== END SESSION ==========
+     const handleEndSession = async () => {
+  if (!selectedSession) return;
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch(
+      apiUrl(`/api/chat/session/${selectedSession.id}/sessionend`),
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!res.ok) throw new Error();
+
+    // update UI
+    setSessions((prev) =>
+      prev.map((s) =>
+        s.id === selectedSession.id ? { ...s, ended: true } : s
+      )
+    );
+
+    alert("Session ended successfully 🌿");
+
+  } catch (err) {
+    console.error("Failed to end session", err);
+  }
+};
   
 
   return (
-    <div className="chat-history">
-      <button className="back-btn" onClick={() => navigate("/dashboard")}>
+    <div>
+<Navbar/>
+       <div className="chat-history">
+      {/* <button className="back-btn" onClick={() => navigate("/dashboard")}>
         Go Back to Dashboard
-      </button>
+      </button> */}
+      
 
       {/* STATS */}
       <div className="stats">
@@ -177,6 +215,8 @@ const ChatHistory = () => {
                   Continue Chat
                 </button>
               )}
+
+           
             </div>
           ))}
         </div>
@@ -195,54 +235,26 @@ const ChatHistory = () => {
                   {msg.text}
                 </div>
               ))}
+{
+  selectedSession.ended ? (
+    <p className="session-ended">This session has been ended.</p>
+  ) : (
+    <button className="end-btn" onClick={handleEndSession}>
+      End Session
+    </button>
+  )}
             </div>
           ) : (
             <p>Select a session to view</p>
           )}
         </div>
 
-        {/* RIGHT (ACTIVE CHAT)
-        <div className="chat-preview">
-          <h3>
-            Active Session
-          </h3>
-
-          <div className="chat-box">
-            {activeSessionId ? (
-              messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`message ${
-                    msg.role === "user" ? "user" : "bot"
-                  }`}
-                >
-                  {msg.text}
-                </div>
-              ))
-            ) : (
-              <p>Click "Continue Chat" to start</p>
-            )}
-          </div>
-
-          {activeSessionId && (
-            <>
-              <div className="chat-input">
-                <input
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Type message..."
-                />
-                <button onClick={sendMessage}>Send</button>
-              </div>
-
-              <button className="end-btn" onClick={endSession}>
-                End Session
-              </button>
-            </>
-          )}
-        </div> */}
+       
+   
       </div>
     </div>
+    </div>
+   
   );
 };
 
