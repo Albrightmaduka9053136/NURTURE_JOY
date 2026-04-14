@@ -527,7 +527,7 @@ const Resources = () => {
 
   const navigate = useNavigate();
   
-  const [activeTab, setActiveTab] = useState("mood");
+  const [activeTab, setActiveTab] = useState("breathing");
 
   const breathing_videos = [
     {
@@ -631,43 +631,43 @@ const Resources = () => {
         <div className="resource-row">
 
           {/* Pink CARD */}
-          <div className={`resource-card pink tab-btn ${activeTab === "breathing" ? "active" : ""}`}
+          <div className={`resource-card beige   ${activeTab === "breathing" ? "active" : ""}`}
     onClick={() => setActiveTab("breathing")}>
              <h3>Breathing</h3>
             <p>Relaxation & breathing techniques</p>
-            {/* <span>12 Resources</span> */}
+            <span>Show More</span>
           </div>
 
           {/* PLANT CARD */}
-          <div className= {`resource-card orange tab-btn ${activeTab === "grounding" ? "active" : ""}`}
+          <div className= {`resource-card orange ${activeTab === "grounding" ? "active" : ""}`}
     onClick={() => setActiveTab("grounding")}>
              <h3>Grounding</h3>
             <p>Relaxation & breathing techniques</p>
-            {/* <span>12 Resources</span> */}
+            <span>Show More</span>
           </div>
 
           {/* GREEN CARD */}
-          <div className= {`resource-card green tab-btn ${activeTab === "care" ? "active" : ""}`}
+          <div className= {`resource-card green ${activeTab === "care" ? "active" : ""}`}
     onClick={() => setActiveTab("care")}>
             <h3>Care Support</h3>
             <p>See your helpful contacts</p>
-            {/* <span>12 Resources</span> */}
+            <span>Show More</span>
           </div>
 
           {/* ORANGE CARD */}
-          <div className= {`resource-card orange tab-btn ${activeTab === "journaling" ? "active" : ""}`}
+          <div className= {`resource-card orange  ${activeTab === "journaling" ? "active" : ""}`}
     onClick={() => setActiveTab("journaling")}>
             <h3>Journaling</h3>
             <p>Write your thoughts</p>
-            {/* <span>9 Resources</span> */}
+            <span>Show More</span>
           </div>
 
           {/* BEIGE CARD */}
-          <div className= {`resource-card beige tab-btn ${activeTab === "nutrition" ? "active" : ""}`}
+          <div className= {`resource-card beige  ${activeTab === "nutrition" ? "active" : ""}`}
     onClick={() => setActiveTab("nutrition")}>
             <h3>Nutrition</h3>
             <p>Healthy eating tips</p>
-            {/* <span>7 Resources</span> */}
+            <span>Show More</span>
           </div>
 
         </div>
@@ -699,7 +699,7 @@ const Resources = () => {
 {/* grounding */}
 
 {activeTab === "grounding" && (
-<div className="grounding-grid">
+<div className="resource-grid grounding-grid">
         {grounding_videos.map((video, index) => (
           <div key={index} className="grounding-card">
             <h3>{video.title}</h3>
@@ -720,7 +720,7 @@ const Resources = () => {
 
 {/* journaling */}
 {activeTab === "journaling" && (
-<div className="card journaling-grid">
+<div className=" journaling-grid">
   < div className="journaling-intro">
     <h2>Journaling Resources</h2>
     <p>
@@ -728,8 +728,8 @@ const Resources = () => {
     </p>
     <button className="primary" onClick={() => navigate("/resources/journal")} >Start Journaling</button>
   </div>
-
-        { journaling_videos.map((video, index) => (
+  <div className="resource-grid">
+ { journaling_videos.map((video, index) => (
           <div key={index} className="journaling-card">
             <h3>{video.title}</h3>
 
@@ -744,9 +744,29 @@ const Resources = () => {
             </div>
           </div> 
         ))}
+  </div>
+
+       
       </div> 
 )}
 
+{/* care support */}
+{activeTab === "care" && (
+<div className=" journaling-grid">
+  < div className="journaling-intro">
+    <h2>Care Support</h2>
+    <p>
+      See all saved contact information.
+    </p>
+    <button className="primary" onClick={() => navigate("/resources/care-providers")} >Save Contacts</button>
+  </div>
+  <div className="resource-grid">
+
+  </div>
+
+       
+      </div> 
+)}
       </div>
       </div>
 
