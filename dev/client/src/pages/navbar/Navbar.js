@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../utils/css/navbar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,  useLocation } from "react-router-dom";
 import { apiUrl } from "../../utils/api";
 import {  } from "react-router-dom";
 import projectLogo from "../../utils/assets/project-logo.png";
 
 const Navbar = ({ sessionId }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -59,15 +60,26 @@ const Navbar = ({ sessionId }) => {
 
       {/* CENTER */}
       <div className={`nav-center ${menuOpen ? "open" : ""}`}>
-        <span className="nav-item active" onClick={() => navigate("/dashboard")}>
-        Home
-      </span>
-      <span className="nav-item" onClick={() => navigate("/resources")}>
-        Resources
-      </span>
-      <span className="nav-item" onClick={() => navigate("/community")}>
-        Community
-      </span>
+       <span
+  className={`nav-item ${location.pathname === "/dashboard" ? "active" : ""}`}
+  onClick={() => navigate("/dashboard")}
+>
+  Home
+</span>
+
+<span
+  className={`nav-item ${location.pathname === "/resources" ? "active" : ""}`}
+  onClick={() => navigate("/resources")}
+>
+  Resources
+</span>
+
+<span
+  className={`nav-item ${location.pathname === "/community" ? "active" : ""}`}
+  onClick={() => navigate("/community")}
+>
+  Community
+</span>
 
       </div>
 
