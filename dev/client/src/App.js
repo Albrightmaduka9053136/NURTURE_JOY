@@ -3,7 +3,7 @@ import {Routes, Route } from "react-router-dom";
 import Login from "./pages/components/Login";
 import Signup from "./pages/components/SignUp";
 import Dashboard from "./pages/components/Dasshboard";
-import Landing from "./pages/Landing";
+import Landing from "./pages/components/Landing";
 
 // import SessionHistory from "./pages/SessionHistory";
 import ChatHistory from "./pages/chatbot/ChatHistory";
@@ -17,6 +17,7 @@ import UrgentSupport from "./pages/resources/UrgentSupport";
 import Resources from "./pages/components/Resources";
 import UserProfile from "./pages/components/UserProfile";
 
+import "../src/utils/css/style.css"
 
 function App() {
   return (
