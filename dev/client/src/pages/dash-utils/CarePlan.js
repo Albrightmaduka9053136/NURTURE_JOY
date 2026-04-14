@@ -20,10 +20,12 @@ const CarePlanCard = () => {
     );
   };
 
+  const day = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
   return (
     <div className="care-card">
 
-      <h3>Your Care Plan: <span>[Date] todays date</span></h3>
+      <h3>Your Care Plan: <span className="todays-date"> {day}</span></h3>
 
       <div className="task-list">
         {tasks.map((task) => (
