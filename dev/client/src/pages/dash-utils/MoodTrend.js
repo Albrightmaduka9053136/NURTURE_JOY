@@ -53,12 +53,18 @@ const MoodTrend = () => {
       weekday: "short",
       day: "numeric"
     }),
+    month: date.toLocaleDateString("en-US", { 
+       weekday: "short",
+      month: "short",
+      day: "numeric"
+     }),
     mood: item.intensity,
-    moodType: item.mood // 👈 IMPORTANT
+    moodType: item.mood 
   };
-});
+}).sort((a, b) => new Date(b.day) - new Date(a.day));
+console.log("Formatted mood data:", formatted);
 
-      setData(formatted);
+      setData(formatted.slice(0,7).reverse()); 
 
     } catch (err) {
       console.error("Failed to fetch mood data", err);
@@ -76,7 +82,7 @@ const MoodTrend = () => {
 
     return (
       <div className="custom-tooltip">
-        <p><strong>{data.day}</strong></p>
+        <p><strong>{data.month}</strong></p>
 
         <p style={{ fontSize: "18px" }}>
           {emoji} {data.moodType}
@@ -115,8 +121,20 @@ const MoodTrend = () => {
 
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
 
-            <XAxis dataKey="day" />
-            <YAxis domain={[0, 10]} />
+            <XAxis dataKey="day"
+            label={{
+    value: "Date",
+    position: "insideBottom",
+    offset: -5
+  }}
+            />
+            <YAxis domain={[0, 10]}
+            label={{
+    value: "Mood Intensity",
+    angle: -90,
+    position: "inside"
+  }}
+            />
 
             <Tooltip  content={<CustomTooltip />}/>
 
