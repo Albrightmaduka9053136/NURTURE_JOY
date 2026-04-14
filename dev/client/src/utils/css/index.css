@@ -1,17 +1,17 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
  
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary: #ff6b81;
+  --primary-light: #ff9a9e;
+
+  --accent: #8DD5F5;
+  --accent-dark: #5bbce4;
+
+  --bg: #f8f9fa;
+  --text: #333;
 }
- 
+
+
 /* login and signup pages */
 /* Background */
 .auth-container {
@@ -121,13 +121,12 @@ html {
 }
 
 .landing-navbar .logo img{
-  font-size: 22px;
+ width: 10%; 
+ font-size: 22px;
   font-weight: bold;
+  border-radius: 50%;
 }
-.landing-navbar .logo img{
-  width: 10%;
-}
- 
+
 .landing-navbar ul {
   display: flex;
   gap: 30px;
@@ -151,6 +150,7 @@ html {
   padding: 0 80px;
   position: relative;
   color: white;
+  max-height: 100vh;
 }
  
 .hero::before {
@@ -205,29 +205,29 @@ html {
  
 /* MODERN ABOUT SECTION */
 .about-modern {
-  padding: 120px 80px;
+  padding: 50px;
   background: #f9f7f5;
 }
  
 .about-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 80px;
-  flex-wrap: nowrap;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
 }
  
 .about-image img {
   width: 100%;
-  max-width: 550px;
-  height: auto;
+  max-height: 550px;
+  /* height: auto; */
   border-radius: 16px;
   object-fit: cover;
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
  
 .about-text {
-  max-width: 520px;
+  max-width: 550px;
 }
  
 .about-text h2 {
@@ -263,7 +263,7 @@ html {
 /* FOUNDATION SECTION (Vision / Mission / Philosophy) */
  
 .foundation-section {
-  padding: 120px 80px;
+  padding: 80px;
   background: #ffffff;
 }
  
@@ -302,7 +302,7 @@ html {
 /* MODERN USE CASES */
  
 .usecases-modern {
-  padding: 120px 80px;
+  padding: 80px;
   background: #f9f7f5;
 }
  
@@ -364,6 +364,15 @@ html {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+  .about-wrapper {
+    flex-direction: column;
+    /* text-align: center; */
+  }
+  .about-wrapper img{
+    width: 600px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
   .login-card {
     flex-direction: column;
   }

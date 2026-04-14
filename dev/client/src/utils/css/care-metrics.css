@@ -33,12 +33,13 @@
 }
 
 .metrics-grid .card p {
-  font-size: 13px;
+  font-size: 16px;
   margin: 0;
 }
 
 .metrics-grid .card h2 {
   margin: 5px 0 0;
+  font-size: 22px;
 }
 
 /* ICON */
@@ -76,17 +77,6 @@
 
 /* =============== CARE PLAN CARD =============== */
 /* CARD BASE */
-.card {
-  border-radius: 14px;
-  padding: 15px;
-  color: #333;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
 .care-card {
   background: #e98b99;
   border-radius: 16px;
@@ -113,7 +103,14 @@
 }
 
 .care-card span {
-  color: #040404;
+  color: black;
+  font-size: 16px;
+}
+
+.care-card .todays-date {
+  /* color: white; */
+  text-decoration: underline;
+  margin-left: 2px;
 }
 
 /* TASK LIST */

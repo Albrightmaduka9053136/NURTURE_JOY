@@ -1,34 +1,3 @@
-
-/* ---ddeeeeleeete */
-:root {
-  --primary: #ff6b81;
-  --primary-light: #ff9a9e;
-
-  --accent: #8DD5F5;
-  --accent-dark: #5bbce4;
-
-  --bg: #f8f9fa;
-  --text: #333;
-}
-
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #ff9a9e, #ff6b81);
-  font-family: "Segoe UI", sans-serif;
-}
- 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
- 
-
 /* Dashboard --- dashboard.js file  */
 .dashboard-container {
   min-height: 100vh;
@@ -409,8 +378,6 @@ code {
 /* new layout */
 
 body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #ff9a9e, #ff6b81);
 }
 
