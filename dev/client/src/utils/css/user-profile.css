@@ -5,6 +5,7 @@ body {
 /* LAYOUT */
 .profile-container {
   display: flex;
+  min-height: 90vh;
 }
 
 /* SIDEBAR */
@@ -51,10 +52,23 @@ body {
 }
 
 /* PROFILE */
-.profile-card {
+.profile-card,.progress-user-card ,.maternal-card, .care-team-card , .personal-details-card {
   text-align: center;
-}
 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ff9a9d97;
+  backdrop-filter: blur(10px);
+}
+.profile-card p, .progress-user-card p,.maternal-card p, .care-team-card p, .personal-details-card p {
+    margin: 10px 0;
+}
+.quick-links-card, .maternal-card{
+    background-color: #8DD5F597;
+    backdrop-filter: blur(10px);
+}
 .profile-card img {
   width: 80px;
   border-radius: 50%;

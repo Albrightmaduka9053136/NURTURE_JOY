@@ -1,9 +1,14 @@
 import React from "react";
 import "../../utils/css/user-profile.css";
+import Navbar from "../navbar/Navbar";
 
 const UserProfile = () => {
   return (
-    <div className="profile-container">
+    <div>
+
+      <Navbar/>
+   
+  <div className="profile-container">
 
       {/* SIDEBAR */}
       <div className="sidebar">
@@ -41,7 +46,7 @@ const UserProfile = () => {
         </div>
 
         {/* MATERNAL HEALTH */}
-        <div className="card">
+        <div className="card maternal-card">
           <h3>My Maternal Health</h3>
           <p><b>Due Date:</b> September 15, 2024</p>
           <p><b>Primary OB/GYN:</b> Dr. Evelyn Reed</p>
@@ -49,7 +54,7 @@ const UserProfile = () => {
         </div>
 
         {/* PROGRESS */}
-        <div className="card progress-card">
+        {/* <div className="card progress-user-card">
           <h3>Nurture Journey Progress</h3>
 
           <div className="progress-item">
@@ -69,10 +74,10 @@ const UserProfile = () => {
             <span>30%</span>
           </div>
           <div className="progress-bar"><div className="bar p30"></div></div>
-        </div>
+        </div> */}
 
         {/* CARE TEAM */}
-        <div className="card">
+        <div className="card care-team-card">
           <h3>Care Team & Connections</h3>
 
           <div className="list-item">👨‍👩‍👧 David Nia (Husband)</div>
@@ -82,7 +87,7 @@ const UserProfile = () => {
         </div>
 
         {/* QUICK LINKS */}
-        <div className="card">
+        <div className="card quick-links-card">
           <h3>Quick Links</h3>
 
           <div className="quick-link">😊 Log Mood</div>
@@ -91,7 +96,7 @@ const UserProfile = () => {
         </div>
 
         {/* PERSONAL DETAILS */}
-        <div className="card">
+        <div className="card personal-details-card">
           <h3>Personal Details</h3>
           <p><b>Birth Date:</b> September 15, 2024</p>
           <p><b>Account Created:</b> May 15, 2024</p>
@@ -99,6 +104,8 @@ const UserProfile = () => {
 
       </div>
     </div>
+
+     </div>
   );
 };
 
