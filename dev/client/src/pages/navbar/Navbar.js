@@ -5,7 +5,7 @@ import { apiUrl } from "../../utils/api";
 import {  } from "react-router-dom";
 import projectLogo from "../../utils/assets/project-logo.png";
 
-const Navbar = ({ sessionId }) => {
+const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,21 +24,14 @@ const Navbar = ({ sessionId }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  
    // ==========================
         // Logout + End Session
         // ==========================
         const handleLogout = async () => {
           const token = localStorage.getItem("token");
+          
       
-          if (sessionId) {
-            await fetch(
-              apiUrl(`/api/chat/session/${sessionId}/sessionend`),
-              {
-                method: "POST",
-                headers: { Authorization: `Bearer ${token}` },
-              }
-            );
-          }
       
           await fetch(apiUrl("/api/auth/logout"), {
             method: "POST",
@@ -48,6 +41,9 @@ const Navbar = ({ sessionId }) => {
           localStorage.removeItem("token");
           navigate("/");
         };
+
+        const user = JSON.parse(localStorage.getItem("user"))
+        
   return (
 
     <div className="navbar">
@@ -85,7 +81,7 @@ const Navbar = ({ sessionId }) => {
 
       {/* RIGHT */}
       <div className="nav-right" ref={dropdownRef}>
-        <span className="user-name">Nelly Nia</span>
+        <span className="user-name">{user.username}</span>
 
         <img
           src="https://i.pravatar.cc/40"
