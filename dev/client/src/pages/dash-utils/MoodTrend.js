@@ -21,13 +21,13 @@ const moodEmojiMap = {
   stressed: "😫"
 };
 
-const MoodTrend = () => {
+const MoodTrend = ({ refresh }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchMoodData();
-  }, []);
+  }, [refresh]);
 
   const fetchMoodData = async () => {
     const token = localStorage.getItem("token");
