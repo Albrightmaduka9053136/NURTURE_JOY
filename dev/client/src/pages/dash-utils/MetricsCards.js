@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../utils/css/care-metrics.css";
 import { apiUrl } from "../../utils/api";
 
-const MetricsCards = () => {
+const MetricsCards = ({ refresh }) => {
   const [moodStreak, setMoodStreak] = useState(0);
   const [journalStreak, setJournalStreak] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchStreaks();
-  }, []);
+  }, [refresh]);
 
   const fetchStreaks = async () => {
     const token = localStorage.getItem("token");

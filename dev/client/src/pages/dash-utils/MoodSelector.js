@@ -12,7 +12,7 @@ const moods = [
   { emoji: "😖", label: "Stressed" }
 ];
 
-const MoodTracker = () => {
+const MoodTracker = ({ onMoodSaved }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
@@ -70,6 +70,8 @@ const handleSaveMood = async () => {
       setIntensity(3);
       setMoodNote("");
     }
+
+      if (onMoodSaved) onMoodSaved(); // Notify parent to refresh data
   } catch (err) {
     console.error("Failed to save mood");
     setResponseMessage("Failed to save mood. Please try again.");
