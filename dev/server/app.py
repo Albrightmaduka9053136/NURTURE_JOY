@@ -66,6 +66,8 @@ def config_summary():
         "expected_accuracy_levels": app.config["EXPECTED_ACCURACY_LEVELS"],
         "model_hyperparameters": app.config["MODEL_HYPERPARAMETERS"],
     }
+    
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=os.getenv("FLASK_ENV") != "production")

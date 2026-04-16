@@ -3,7 +3,7 @@
     "topic": "box breathing",
     "title": "Box breathing to calm stress",
     "content": "Box breathing is a simple technique that can calm the body’s stress response. Inhale for 4 counts, hold for 4, exhale for 4, hold for 4, and repeat for a few rounds. If you feel light‑headed, return to normal breathing and try again more gently.",
-    "link": "/resources/breathing-box",
+    "link": "/pages/components/Resources",
     "source": "NurtureJoy resource",
     "type": "info_article",
     "id": "info_001_box-breathing-box-breathing-to-calm-stre"
@@ -12,7 +12,7 @@
     "topic": "grounding 5-4-3-2-1",
     "title": "5-4-3-2-1 grounding for anxious moments",
     "content": "Grounding brings attention back to the present when worries spiral. Name 5 things you can see, 4 you can feel, 3 you can hear, 2 you can smell, and 1 you can taste. This can reduce panic sensations and help you feel more in control.",
-    "link": "/resources/grounding-54321",
+    "link": "/pages/components/Resources",
     "source": "NurtureJoy resource",
     "type": "info_article",
     "id": "info_002_grounding-5-4-3-2-1-5-4-3-2-1-grounding-"
@@ -21,7 +21,7 @@
     "topic": "journaling",
     "title": "Journaling to process feelings",
     "content": "Journaling can help you notice patterns in thoughts and emotions without judging yourself. Try writing: “What am I feeling right now?”, “What do I need?”, and “What’s one small step that could help today?”. Short, consistent entries are often more helpful than long ones.",
-    "link": "/resources/journal",
+    "link": "/pages/resources/JournalPrompts",
     "source": "NurtureJoy resource",
     "type": "info_article",
     "id": "info_003_journaling-journaling-to-process-feeling"
@@ -39,7 +39,7 @@
     "topic": "talking to a provider",
     "title": "How to bring up mental health with a provider",
     "content": "It can help to be direct and specific: describe what you’re feeling, how long it’s been happening, and how it affects sleep, appetite, or daily functioning. You can also ask about therapy, community resources, and safety planning. You deserve to be taken seriously.",
-    "link": "/resources/care-providers",
+    "link": "/pages/resources/UrgentSupport",
     "source": "Clinical communication best practice",
     "type": "info_article",
     "id": "info_005_talking-to-a-provider-how-to-bring-up-me"
