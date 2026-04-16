@@ -26,8 +26,8 @@
   position: fixed;
   bottom: 10px;
   right: 30px;
-  width: 400px;
-  height: 450px;
+  width: 450px;
+  height: 500px;
   background: white;
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
@@ -55,6 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 12px 12px 0 0;
 }
 
 .chat-body {
@@ -74,6 +75,8 @@
 .chat-box{
     margin: 0 10px;
     font-size: 12px;
+    max-height: 400px;
+    height: auto;
 }
 
 .chat-input input {
@@ -153,7 +156,7 @@
 }
  
 .chat-box {
-  height: 500px;
+  max-height: 700px;
   overflow-y: auto;
   margin-bottom: 10px;
 }
@@ -393,7 +396,8 @@
   background: #f3f3f3;
   padding: 10px;
   border-radius: 10px;
-  height: 200px;
+  height: 800px;
+
   overflow-y: auto;
 }
 
