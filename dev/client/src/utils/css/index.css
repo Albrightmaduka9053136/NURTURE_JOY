@@ -105,7 +105,7 @@ html {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 60px;
+  padding: 10px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -121,7 +121,8 @@ html {
 }
 
 .landing-navbar .logo img{
- width: 10%; 
+  width: 70px;
+ /* width: 10%;  */
  font-size: 22px;
   font-weight: bold;
   border-radius: 50%;
@@ -139,7 +140,12 @@ html {
   text-decoration: none;
   font-weight: 500;
 }
- 
+.landing-navbar a:hover,
+.landing-navbar .nav-link:hover {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
  
 /* HERO */
 .hero {
@@ -205,7 +211,7 @@ html {
  
 /* MODERN ABOUT SECTION */
 .about-modern {
-  padding: 50px;
+  padding: 120px 50px;
   background: #f9f7f5;
 }
  
@@ -263,7 +269,7 @@ html {
 /* FOUNDATION SECTION (Vision / Mission / Philosophy) */
  
 .foundation-section {
-  padding: 80px;
+  padding: 120px 50px;
   background: #ffffff;
 }
  
@@ -302,7 +308,7 @@ html {
 /* MODERN USE CASES */
  
 .usecases-modern {
-  padding: 80px;
+  padding:120px 80px;
   background: #f9f7f5;
 }
  

@@ -3,6 +3,7 @@
 /* PAGE */
 .journal-page {
   padding: 20px;
+  min-height: 90vh;
 }
 
 /* GRID */
