@@ -16,14 +16,11 @@ const Dashboard = () => {
   
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [sessionId, setSessionId] = useState(null);
-
-  
-    const [chat, setChat] = useState([]);
-    const [message, setMessage] = useState("");
-    const [activeTab, setActiveTab] = useState("mood");
-    const [moodData, setMoodData] = useState([]);
-    const [chatOpen, setChatOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
+  // const [profileProgress, setProfileProgress] = useState(0);
+  // const [moodProgress, setMoodProgress] = useState(0);
+  // const [journalProgress, setJournalProgress] = useState(0);
+  const [refreshMood, setRefreshMood] = useState(false);
    
 
     // ==========================
@@ -62,168 +59,74 @@ const Dashboard = () => {
     init();
   }, [navigate]);
 
+// profile cmpletion progress
+// useEffect(() => {
+//   if (!user) return;
 
-  // ==========================
-    // 💬 Send Message
-    // ==========================
-  const handleSend = async () => {
-  if (!message.trim()) return;
+//   const fields = [
+//     user.username,
+//     user.email,
+//     user.phone,
+//     user.city,
+//     user.due_date,
+//   ];
 
-  const token = localStorage.getItem("token");
-  const userText = message.trim();
+//   const filled = fields.filter((f) => f && f !== "").length;
+//   const percentage = Math.round((filled / fields.length) * 100);
 
-  // Add user message instantly
-  setChat((prev) => [
-    ...prev,
-    { role: "user", text: userText }
-  ]);
+//   setProfileProgress(percentage);
+// }, [user]);
 
-  setMessage("");
 
-  try {
-    let currentSessionId = sessionId;
+// // mood tracking progress
+// useEffect(() => {
+//   const fetchMood = async () => {
+//     try {
+//       const token = localStorage.getItem("token");
 
-    // 🟢 START SESSION ONLY IF NONE EXISTS
-    if (!currentSessionId) {
-      const startRes = await fetch(
-        apiUrl("/api/chat/session/start"),
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+//       const res = await fetch(apiUrl("/api/mood/today"), {
+//         headers: { Authorization: `Bearer ${token}` },
+//       });
 
-      const startData = await startRes.json();
+//       if (!res.ok) throw new Error("Failed mood fetch");
 
-      if (!startRes.ok) throw new Error("Failed to start session");
+//       const data = await res.json();
 
-      currentSessionId = startData.session_id;
-      setSessionId(currentSessionId);
+//       setMoodProgress(data.mood ? 100 : 0);
 
-      // Optional: show welcome message
-      setChat((prev) => [...prev, startData.message]);
-    }
+//     } catch (err) {
+//       console.error("Mood fetch error:", err);
+//       setMoodProgress(0); // fallback
+//     }
+//   };
 
-    // 🟢 SEND MESSAGE AFTER SESSION EXISTS
-    const res = await fetch(
-      apiUrl(`/api/chat/session/${currentSessionId}/message`),
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ text: userText }),
-      }
-    );
+//   fetchMood();
+// }, []);
 
-    const data = await res.json();
+// // journal progress
+// useEffect(() => {
+//   const fetchJournal = async () => {
+//     try {
+//       const token = localStorage.getItem("token");
 
-    if (!res.ok) {
-      setChat((prev) => [
-        ...prev,
-        { role: "assistant", text: data.error || "Error occurred" }
-      ]);
-      return;
-    }
+//       const res = await fetch(apiUrl("/api/journal/today"), {
+//         headers: { Authorization: `Bearer ${token}` },
+//       });
 
-    setChat((prev) => [...prev, data.message]);
+//       if (!res.ok) throw new Error("Failed journal fetch");
 
-  } catch (err) {
-    setChat((prev) => [
-      ...prev,
-      { role: "assistant", text: "Backend not reachable" }
-    ]);
-  }
-};
-  
-    // ==========================
-    // 🔘 Handle Quick Reply
-    // ==========================
-    const handleIntent = async (intentId) => {
-    if (!sessionId) return;
-  
-    const token = localStorage.getItem("token");
-  
-    const res = await fetch(
-      apiUrl(`/api/chat/session/${sessionId}/intent`),
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ intent: intentId }),
-      }
-    );
-  
-    const data = await res.json();
-  
-    if (res.ok) {
-      setChat((prev) => [...prev, data.message]);
-  
-      // 🔴 If session ended, disable input
-      if (intentId === "end_session") {
-        setSessionId(null);
-      }
-    }
-  };
-  
-  
-  // endsession
-  const handleEndSession = async () => {
-    if (!sessionId) return;
-  
-    const token = localStorage.getItem("token");
-  
-    try {
-      const res = await fetch(
-        apiUrl(`/api/chat/session/${sessionId}/sessionend`),
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-  
-      const data = await res.json();
-  
-      if (res.ok) {
-        setChat((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            text: "Your session has been safely closed 🌿",
-          },
-        ]);
-  
-        setSessionId(null); // disable session
-      }
-    } catch (err) {
-      console.error("Failed to end session", err);
-    }
-  };
-  
-  
-  // restart the chat session
-  const startNewSession = async () => {
-    const token = localStorage.getItem("token");
-  
-    const res = await fetch(
-      apiUrl("/api/chat/session/start"),
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-  
-    const data = await res.json();
-  
-    if (res.ok) {
-      setSessionId(data.session_id);
-      setChat([data.message]);
-    }
-  };
-  
+//       const data = await res.json();
+
+//       setJournalProgress(data.entry ? 100 : 0);
+
+//     } catch (err) {
+//       console.error("Journal fetch error:", err);
+//       setJournalProgress(0); // fallback
+//     }
+//   };
+
+//   fetchJournal();
+// }, []);
   
   
   return (
@@ -232,7 +135,7 @@ const Dashboard = () => {
       {/* Navbar */}
      
 
-      <Navbar sessionId={sessionId} />
+      <Navbar />
 
       {/* Welcome */}
      
@@ -293,16 +196,15 @@ const Dashboard = () => {
           <div className="grid-inside">
             <div className="left-inside">
                 {/* Mood Logger */}
-          <MoodTracker/> 
+          <MoodTracker onMoodSaved={() => setRefreshMood(prev => !prev)}/> 
             </div>
 <div className="right-inside">
   {/* Metrics */}
-          <MetricsCards/>
+          <MetricsCards refresh={refreshMood}/>
 
     {/* Mood Trend */}
-              <MoodTrend/>
+              <MoodTrend refresh={refreshMood}/>
     </div>
-             
 
           </div>
 
@@ -346,25 +248,9 @@ const Dashboard = () => {
 
           {/* Care Plan */}
          <CarePlanCard/>
-          
-
-          
-
-        
 
         </div>
-<ChatWidget
-  chat={chat}
-  message={message}
-  setMessage={setMessage}
-  handleSend={handleSend}
-  handleIntent={handleIntent}
-  startNewSession={startNewSession}
-  handleEndSession={handleEndSession}
-  sessionId={sessionId}
-  setChatOpen={setChatOpen}
-  open={chatOpen}
-/>
+<ChatWidget open={chatOpen} setChatOpen={setChatOpen} />
       </div>
     </div>
   );
