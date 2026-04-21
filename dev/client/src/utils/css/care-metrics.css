@@ -1,0 +1,171 @@
+
+
+/* TITLE */
+.metrics-container h3 {
+  margin-bottom: 15px;
+}
+
+/* GRID */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+/* CARD BASE */
+.metrics-grid .card {
+  border-radius: 14px;
+  padding: 15px;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.metrics-grid .card:hover {
+  transform: translateY(-3px);
+}
+
+/* CONTENT */
+.metrics-grid .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metrics-grid .card p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.metrics-grid .card h2 {
+  margin: 5px 0 0;
+  font-size: 22px;
+}
+
+/* ICON */
+.icon {
+  font-size: 28px;
+  background: rgba(255,255,255,0.6);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* INDIVIDUAL CARD COLORS */
+
+/* Mood Streak (soft orange like image) */
+.card.mood, .card.journal {
+  background: linear-gradient(135deg, #fcd5a6, #f8b26a);
+}
+
+/* Journal (peach tone) */
+/* .card.journal {
+  background: linear-gradient(135deg, #f8c9a6, #f4a261);
+} */
+
+/* Logs (teal - YOUR NEW COLOR) */
+.card.logs {
+  background: linear-gradient(135deg, #8DD5F5, #5bbce4);
+  color: white;
+}
+
+/* Likes (soft purple) */
+.card.likes {
+  background: linear-gradient(135deg, #e0c3fc, #c084fc);
+  color: white;
+}
+
+
+/* =============== CARE PLAN CARD =============== */
+/* CARD BASE */
+.care-card {
+  background: #e98b99;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 14px;
+  padding: 15px;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.care-card:hover {
+  transform: translateY(-3px);
+}
+
+/* TITLE */
+.care-card h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.care-card span {
+  color: black;
+  font-size: 16px;
+}
+
+.care-card .todays-date {
+  /* color: white; */
+  text-decoration: underline;
+  margin-left: 2px;
+}
+
+/* TASK LIST */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* TASK ITEM */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* TEXT */
+.task-text {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.task-text.done {
+  color: #888;
+  text-decoration: line-through;
+}
+
+/* CHECKBOX CUSTOM */
+.checkbox-container {
+  position: relative;
+  display: inline-block;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* CHECKED STATE */
+.checkbox-container input:checked + .checkmark {
+  background: #8DD5F5;
+  border: none;
+}
+
+/* RIGHT ICON */
+.task-icon {
+  margin-left: 10px;
+  font-size: 16px;
+}

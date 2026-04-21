@@ -1,0 +1,185 @@
+
+
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT SIDE */
+.left-section {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: white;
+  max-width: 500px;
+}
+
+.overlay h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.overlay p {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* RIGHT SIDE */
+.right-section {
+  flex: 1;
+  background: #f6e7e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FORM CARD */
+.form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  color: #e07a6b;
+  margin-bottom: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.logo img {
+  width: 25%;
+}
+
+.form-card h3 {
+  margin-bottom: 20px;
+}
+
+/* INPUTS WITH ICONS */
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px;
+  border-radius: 10px;
+  border: 2px solid #e07a6b;
+  outline: none;
+  font-size: 14px;
+  background-color: #fff;
+
+  transition: all 0.3s ease;
+}
+
+.input-group input:hover {
+  background-color: #ffe0da;
+  border-color: #d96b5c;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* FORGOT PASSWORD */
+.forgot {
+  text-align: right;
+  font-size: 13px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #e07a6b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #cf6658;
+}
+
+/* DIVIDER */
+.divider {
+  margin: 20px 0;
+  font-size: 14px;
+  color: gray;
+}
+
+/* SOCIAL */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-buttons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.google {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.apple {
+  background: black;
+  color: white;
+}
+
+/* TEXT */
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-text span {
+  color: #e07a6b;
+  cursor: pointer;
+  font-weight: 600;
+}
+.signup-text span a {
+  color: #e07a6b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.terms {
+  margin-top: 10px;
+  font-size: 11px;
+  color: gray;
+}

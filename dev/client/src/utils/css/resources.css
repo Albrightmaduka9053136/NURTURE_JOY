@@ -1,0 +1,320 @@
+body {
+  background: #f5f7f6;
+}
+
+/* HERO */
+.resources-content .hero {
+  position: relative;
+  height: 300px;
+  padding: 40px;
+
+  background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6")
+    center/cover no-repeat;
+
+  border-radius: 0 0 30px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* OVERLAY */
+.resources-content .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 0 0 30px 30px;
+}
+
+/* LEFT CONTENT */
+.resources-content .hero-left {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  color: white;
+}
+
+.resources-content .hero-left h1 {
+  font-size: 32px;
+}
+
+.resources-content .hero-left p {
+  margin: 10px 0;
+}
+
+/* BUTTON */
+.resources-content .hero-btn {
+  background: white;
+  color: #333;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* FLOATING CARD */
+.resources-content .hero-card {
+  position: relative;
+  padding: 10px 5px;
+  margin-top: 10px;
+  z-index: 3;
+
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+
+  width: 280px;
+  height: fit-content;
+  
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.resource-grid{
+  display: grid;
+  padding: 50px;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  background-color: rgba(240, 248, 255, 0.247);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+}
+
+.journaling-intro{
+  background-color: #f5f7f6;
+  padding: 50px 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.journaling-intro h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.journaling-intro p {
+  font-size: 16px;
+  color: #555;
+}
+.journaling-intro button {
+  margin-top: 15px;
+  color: white;
+  border: none;
+  font-size: 14px;
+}
+
+/* CARD CONTENT */
+.hero-card-content {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hero-card-content img {
+  border-radius: 10px;
+}
+
+/* ACTIONS */
+.hero-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.primary {
+  background: linear-gradient(90deg, #ff6b81, #ff9a9e);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.secondary {
+  border: 1px solid #8DD5F5;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* RESOURCES */
+.resources-section {
+  margin-top: 40px;
+  padding: 20px 40px;
+}
+
+.resource-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+/* CARD BASE */
+.resource-card {
+  min-width: 180px;
+  width: 100%;
+  height: 150px;
+
+  border-radius: 16px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  background: white;
+  cursor: pointer;
+}
+.resource-card span {
+  font-size: 14px;
+  color: #ff6b81;
+  /* text-decoration: underline; */
+}
+.resource-card.active{
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.232);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgb(0, 0, 0);
+  color: black;
+}
+
+/* VARIANTS */
+.profile img {
+  border-radius: 50%;
+  width: 60px;
+}
+
+.plant img {
+  width: 60px;
+}
+
+.green {
+  background: #5c8d6d;
+  color: white;
+}
+
+.orange {
+  background: #c96b4b;
+  color: white;
+}
+
+.beige {
+  background: #e4c9a8;
+  color: white;
+}
+
+
+/* =================== care provider */
+.providers-page {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  padding: 50px 30px;
+  margin: 0 auto;
+  min-height: 89vh;
+}
+
+/* LEFT SIDE */
+.providers-left h2 {
+  font-size: 26px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.providers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CARD */
+.provider-card {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.provider-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  font-size: 26px;
+  background: #eef4ff;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.role {
+  font-size: 14px;
+  color: #888;
+}
+
+.availability {
+  font-size: 13px;
+  color: #2ecc71;
+}
+
+.message-btn {
+  background: #1a535c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* RIGHT SIDE FORM */
+.providers-right {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  height: fit-content;
+}
+
+.providers-right h3 {
+  margin-bottom: 15px;
+}
+
+.provider-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.provider-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.provider-form input:focus {
+  outline: none;
+  border-color: #6c63ff;
+}
+
+/* BUTTON */
+.add-provider-btn {
+  background: linear-gradient(135deg,  #ff9a9e, #ff6b81);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .providers-page {
+    grid-template-columns: 1fr;
+  }
+}
